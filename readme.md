@@ -12,3 +12,6 @@ Wir freuen uns, dass Sie sich für OXSEARCH entschieden haben. OXSEARCH ist für
 
 Thanks for purchasing OXSEARCH. OXSEARCH is compatible with every OXID version. Having decided in favour of it, your shop environment benefits from the most recent features in shop technology. Moreover, OXSEARCH remains highly performant with millions of articles in your shop.
 [Click here](Manual/Handbuch Oxsearch.html) to view the OXSEARCH manual.
+
+# Lizenzbedingungen #
+*** Bitte vervollständigen ***
