@@ -1,0 +1,14 @@
+/vendor
+/composer.phar
+/build
+/importer/data
+/importer/importStatus.json
+.project
+deploy*
+.externalToolBuilders
+
+# OS specific
+.DS_Store
+
+# PHPStorm cfg
+.idea
