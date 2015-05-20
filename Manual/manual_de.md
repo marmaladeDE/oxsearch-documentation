@@ -61,9 +61,9 @@ Der Datenimport kann auf drei verschiedene Arten durchgeführt werden.
 - mittels eines Cronjobs, der die Skriptdatei `<ShopRoot>/modules/marm/oxsearch/importer/doImport.sh` ausführt  
 - mit Hilfe der Update- & Delete-API  
 
-Wenn Sie die Schaltfläche im Backend benutzen, wirken sich vorgenommene Änderungen sofort aus. Der Nachteil ist, dass, je nach Datenmenge, der Neuaufbau einige Zeit in Anspruch nehmen kann und dass Sie die Konfigurationsseite während des Indexaufbaus nicht verlassen dürfen. 
- Das Update durch den Cronjob geschieht im Hintergrund und bedarf keiner aktiven Ausführung, genau wie die Schaltfläche "Index jetzt neu aufbauen" im Backend handelt es sich hier um einen Vollimport, der in Abhängigkeit zur Datenmenge einige Zeit in Anspruch nehmen kann.  
-Die Update- und Delete-API bietet sich an, um geziehlte Aktualisierungen vorgenommen werden sollen, beispielsweise alle Rechnungen am Ende eines Tages oder Wochenangebote.  
+Wenn Sie die Schaltfläche im Backend benutzen, wirken sich vorgenommene Änderungen sofort aus. Je nach Datenmenge, kann der Neuaufbau einige Zeit in Anspruch nehmen und die Konfigurationsseite muss während des Indexaufbaus geöffnet bleiben, ansonsten bricht der Indexaufbau ab. 
+Das Update durch den Cronjob geschieht im Hintergrund und bedarf keiner aktiven Ausführung, genau wie die Schaltfläche "Index jetzt neu aufbauen" im Backend handelt es sich hier um einen Vollimport, der in Abhängigkeit zur Datenmenge einige Zeit in Anspruch nehmen kann.  
+Die Update- und Delete-API bietet sich an, wenn gezielte Aktualisierungen vorgenommen werden sollen. 
 
 ### Update- & Delete-API ###
 
@@ -99,10 +99,10 @@ Die Grundeinstellungen von OXSEARCH sind in folgende Abschnitte unterteilt:
 __Hinweis: Diese Option erfordert eine erneute Indizierung!__ 
 - Autosuggestion unterbreitet während der Sucheingabe Vorschläge zu Suchbegriffen  
 - Seitennummer an Artikel-URL anhängen: Bei mehrseitigen Listen wird ab Seite 2 die Seiten-Nummer in der URL hinterlegt. 
-- Aktuelle Promotion überschreibt Kategoriesortierung: Diese Einstellung nimmt Einfluss darauf, ob die Sortierung innerhalb einer Kategorie von der aktuellen Promotion ersetzt wird. Mit der Promotion von Artikeln können Sie Einfluss darauf nehmen, ob ein bestimmter Artikel ganz vorne oder weiter hinten in der Liste angezeigt wird. Promotionen können Sie in OXID unter Kundeninformation > Aktionslisten pflegen.  
+- Aktuelle Promotion überschreibt Kategoriesortierung: Diese Einstellung nimmt Einfluss darauf, ob die Sortierung innerhalb einer Kategorie von der aktuellen Promotion ersetzt wird. Mit der Promotion von Artikeln können Sie Einfluss darauf nehmen, ob ein bestimmter Artikel oder eine Gruppe von Artikel ganz vorne oder weiter hinten in der Liste angezeigt wird. Promotionen können Sie in OXID unter Kundeninformation > Aktionslisten oder direkt am Artikel unter Artikel verwalten > Artikel > Reiter Erweitert (Boost-Wert) pflegen.  
 - Elternkategorien enthalten alle Produkte ihrer Kinder: Wenn Ihr Shop beispielsweise eine Kategorie "Computer und Zubehör" enthält, die aus den Unterkategorien "Computer" und "Zubehör" besteht, können Sie hier beeinflussen, ob bei der Auswahl der Kategorie alle zugeordneten Artikel der Unterkategorien angezeigt werden oder ob der Kunde sich erst für eine der genannten Unterkategorien entscheiden muss.  
 __Hinweis: Diese Option erfordert eine neue Indizierung!__ 
-- Artikel beim Speichern erneut indizieren: Wenn die Indizierung der Artikel durch einen ChronJob automatisch erfolgt, ist diese Option nicht zwingend erforderlich.  
+- Artikel beim Speichern erneut indizieren: Wenn die Indizierung der Artikel durch einen ChronJob automatisch erfolgt, ist diese Option optional.  
 - oxLocator für Suchergebnis-Detailseiten abschalten: Der oxLocator fügt den Detailseiten der Artikel Navigationslinks hinzu, mit deren Hilfe man zwischen den Artikeln hin- und herspringen kann (u. a. vorheriger Artikel, nächster Artikel, etc.).  
 ___Hinweis: Der aktivierte oxLocator wirkt sich negativ auf die Performance aus.___
 - Trennzeichen für Attribute mit mehreren Wertausprägungen: Wenn ein Artikel beispielsweise aus mehreren Materialien besteht, besteht das Attribut "Material" aus zwei Wertausprägungen. Das Trennzeichen stellt sicher, dass beide Materialien für den betreffenden Artikel gespeichert werden.  
@@ -114,7 +114,7 @@ In den Sucheinstellungen können Sie Suchfilter festlegen. Alle diese Ergebnisse
 - Attribute Durchsuchen: Attribute sind Eigenschaften, die ein Artikel enthalten kann (Verschiedene Größen, Farben, etc.). Ist diese Option aktiviert, könnte der Endkunde im Shop-Frontend beispielsweise Suchanfragen mit Attributsausprägungen `blau` auslösen.  
 - Varianten durchsuchen: Die Variante eines Artikels hat immer einen Elternartikel, von dem die Variante erbt. Im Fall von Bekleidung in verschiedenen Größen würde das bedeuten, dass es einen Artikel für ein bestimmtes Kleidungsstück gibt und die Varianten (verschiedene Farben und Größen) die jeweiligen Kindartikel sind. Im Frontend wird nur ein Artikel angezeigt und innerhalb des Artikels kann der Kunde mittels einer Dropdown-Liste die präferierte Variante wählen.  
 - Zusätzliche Fuzzy-Suche: Die Fuzzy-Suche korrigiert Tippfehler wie Buchstabendreher. Mindestens 30 % des Wortes müssen dabei richtig geschrieben sein. 
-- Wildcard-Suche: Hier können Sie entscheiden, ob für die Suche auch Platzhalter genutzt werden können. Wildcards sind sinnvoll, wenn der Name eines Artikels aus zusammengesetzten Wörtern besteht. Je nachdem, aus wie Vielen Wörtern der Begriff zusammen gesetzt ist, werden betroffene Artikel nicht immer zuverlässig gefunden. "Kiteboard" im Demoshop besteht nur aus zwei zusammen gesetzten Wörtern und würde auch ohne Wildcard-Suche gefunden werden, wenn es jetzt aber "Kiteboard-Hüllen" gibt, würden ohne Wildcard-Suche hauptsächlich alle Treffer mit "Kiteboard" und "Hülle" ausgegeben werden.  
+- Wildcard-Suche: Hier können Sie entscheiden, ob für die Suche auch Platzhalter genutzt werden können. Wildcards sind sinnvoll, wenn der Name eines Artikels aus zusammengesetzten Wörtern besteht. Je nachdem, aus wie Vielen Wörtern der Begriff zusammen gesetzt ist, werden betroffene Artikel nicht immer zuverlässig gefunden. "Kiteboard" im OXID Demoshop besteht nur aus zwei zusammen gesetzten Wörtern und würde auch ohne Wildcard-Suche gefunden werden, wenn es jetzt aber "Kiteboard-Hüllen" gibt, würden ohne Wildcard-Suche hauptsächlich alle Treffer mit "Kiteboard" und "Hülle" ausgegeben werden.  
 ___Hinweis: Die Wildcard-Suche wirkt sich negativ auf die Performance aus!___  
 - Bei Einzelergebnissen nicht zum Artikel weiterleiten: Mit dieser Option beeinflussen Sie, ob im Falle eines einzigen Treffers auf die Suchergebnisseite oder direkt zum Artikel weitergeleitet wird. 
 - Zeige Suchvorschläge: Während der Sucheingabe wird mit Hilfe von Autosuggestion der Suchbegriff vervollständigt.  
@@ -123,19 +123,20 @@ ___Hinweis: Die Wildcard-Suche wirkt sich negativ auf die Performance aus!___
 - Zeige gefundene Hersteller listet gefundene Hersteller des gesuchten Artikels  
 - Zeige gefundene Links: Ist diese Option aktiviert, kann man im Shop beispielsweise Zahlungs- und Versandbedingungen oder Öffnungszeiten suchen.  
 - Cutoff-Häufigkeit: Hier können Sie einen absoluten oder relativen Wert festlegen, der häufig auftauchenden Wörtern wie "der", "die", "das" eine geringere Relevanz zuordnet und in einem Subquerry verarbeitet, damit die Trefferliste möglichst exakte Ergebnisse liefert.  
-- Preisbereich für Suchergebnisse (von ... bis ...): Hier können Sie die angezeigten Artikel auf den von Ihnen gewünschten Preisbereich beschränken. Dies ist sehr hilfreich, wenn der verwendete Suchbegriff sehr allgemein ist (Beispielsweise Kiteboard).
+- Preisbereich für Suchergebnisse (von ... bis ...): Hier können Sie die angezeigten Artikel auf den von Ihnen gewünschten Preisbereich beschränken. Dies ist sehr hilfreich, wenn Sie beispielsweise kostenlose Artikel, wie Dreingaben aus den Suchergebnissen ausschließen wollen.
 - Abfrage-Verknüpfung: In dieser Select-Box wählen Sie aus, ob alle oder mindestens einer der abgefragten Kriterien zutreffen.  
 
 ### Produktfilter ### 
 
 In diesem Reiter können Sie Produktfilter konfigurieren.
-- SEO-URLS für gefilterte Seiten verwenden: Wenn diese Option deaktiviert ist, werden alle Filter in Form von Parametern an die URL angehängt. Je nach gewählten Filtern kann die Länge der URL zu Problemen führen, so dass die gewünschte Seite nicht angezeigt werden kann..  
+- SEO-URLS für gefilterte Seiten verwenden: Wenn diese Option deaktiviert ist, werden alle Filter in Form von Parametern an die URL angehängt. Je nach gewählten Filtern kann die Länge der URL zu Problemen führen, so dass die gewünschte Seite nicht angezeigt werden kann.
 - Anzahl gefundener Artikel am Filterwert anzeigen: Ist diese Option aktiviert, wird im Frontend sichtbar, wie viele Artikel für den aktivierten Filter gefunden wurden.
-- Selektierte Filter nicht nach vorne sortieren: in einer Multiselectbox werden ausgewählte Filter nicht nach vorne sortiert, sondern in der ursprünglichen Filtersortierung angezeigt.. Je nach Anzahl der Elemente in der Selektbox bedeutet dies bei nicht gesetztem Haken, dass Sie scrollen müssen, um die selektierten Artikel zu finden.  
+- Selektierte Filter nicht nach vorne sortieren: in einer Multiselectbox werden ausgewählte Filter nicht nach vorne sortiert, sondern in der ursprünglichen Filtersortierung angezeigt. Je nach Anzahl der Elemente in der Selektbox bedeutet dies bei nicht gesetztem Haken, dass Sie scrollen müssen, um die selektierten Filter zu finden.  
 - Kategoriefilter aktivieren: In der Ergebnisliste werden die Kategorien angezeigt, die den Suchbegriff enthalten.  
-- Trennzeichen für dynamische Kategorien: Dynamische Kategorien werden von ElasticSearch aus bestehenden Artikeln befüllt. Die Beispielkategorie "Geschenkartiekl unter 100 EUR" könnte alle Artikel unter 100 EUR enthalten. Das Trennzeichen für dynamische Kategorien muss sich von dem für statische Kategorien unterscheiden.  
+- Trennzeichen für dynamische Kategorien: Dynamische Kategorien werden von Elasticsearch aus bestehenden Artikeln befüllt. Die Beispielkategorie "Geschenkartikel unter 100 EUR" könnte alle Artikel unter 100 EUR enthalten. Das Trennzeichen für dynamische Kategorien muss sich von dem für statische Kategorien unterscheiden.  
 *** Stimmt so nicht, wie erfolgt die Mehrsprachige Pflege? *** 
-- Attribute: Hier können Sie Attribute für Artikel wie Farbe und Größe bei Bekleidung definieren, auf die OXSEARCH filtern kann.  
+- Attribute: Hier können Sie Attribute für Artikel wie Farbe und Größe bei Bekleidung definieren, auf die OXSEARCH filtern kann.
+*** Der Punkt Artikel fehlt ***   
 - Skript: Hier können Sie Scripts erstellen, die mehrere Werte prüfen und im Shop beispielsweise als Sonderposten, Saisonartikel, etc. angezeigt werden.  
 
 ## Reiter Synonyme und suchbare Links ##
@@ -155,8 +156,9 @@ Das dynamische Boosting ermöglicht es, die Position von Produkten in der Katego
 - Boostfaktor in den Warenkorb gelegt  
 - Boostfaktor Anzahl der Detailseitenaufrufe  
 - Boostfaktor Promotionen: Dies ist ein vorgeschlagener Defaultwert von OXID. Ihren Wünschen entsprechend können Sie dieses Feld beliebig konfigurieren, beispielsweise nach Anzahl der Verkäufe.  
-- Relevanzexponent: Mit ihm legen Sie fest, mit welchem Faktor die Wichtungen potenziert werden. Folgende Formel wird angewandt:  
-boostfaktor Wert multipliziert mit relevanz potenziert mit  Relevanzexponent  
+- Relevanzexponent: Mit ihm legen Sie fest, mit welchem Faktor die Wichtungen potenziert werden. Dies dient zur Abwertung von unscharfen Treffern im Suchergebniss.
+Folgende Formel wird angewandt:  
+Boostfaktor Wert multipliziert mit Relevanz potenziert mit Relevanzexponent  
 Die Werte eines Artikels werden dabei addiert.
 __Hinweis: Wir empfehlen folgende Werte:  
 - In den Warenkorb gelegt: 10  
@@ -203,6 +205,7 @@ Für die Mehrsprachigkeit Ihres Shops empfiehlt es sich, eine Sprachvariable zu 
 
 ## Mandantenfähigkeit ##
 
+*** unglückig formuliert ***
 OXSEARCH unterstützt keine Mandantenfähigkeit. Konkret bedeutet dies, dass Sie für den Fall, dass Sie Subshops pflegen, OXSEARCH für jeden Subshop säparat installieren und konfigurieren müssen.  
 
 ## Support von OXID-Standardfunktionalitäten ##
@@ -210,3 +213,4 @@ OXSEARCH unterstützt keine Mandantenfähigkeit. Konkret bedeutet dies, dass Sie
 Die folgenden OXID-Grundfunktionen werden von OXSEARCH nicht unterstützt:  
 - Rollen und Rechte im Frontend  
 - Subshop-Vererbung  
+*** Was ist mit dyn. Caching? High-Performancen Option - Varnish?***
