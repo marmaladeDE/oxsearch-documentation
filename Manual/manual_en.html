@@ -335,7 +335,7 @@ Please use the list methods with care as they have no limits. A huge amount of a
 <ul>
 <li>Assessed search fields: This parameter defines the quantifier for searches. If you assessed the short description with 3 and the article name with 10, the article name would be priorized over the short description.<br/></li>
 <li>Search in attribute values: Attributes are propperties of articles like colour or size. The enabled checkbox would enable a user to search your shop for all blue t-shirts.<br/></li>
-<li>Search in variants: Variants of an article inherit from a parent article. The parent article contains basic information and the variants different colours or sizes. In the shop frontend, the customer clicks on one article and can select the preferred variant from within the article details.<br/></li>
+<li>Search in variants: Variants of an article inherit from a parent article. The parent article contains basic information and the variants different colours or sizes. In the shop frontend, the customer clicks on one article and can select the preferred variant within the article details.<br/></li>
 <li>Additional fuzzy search: The fuzzy search corrects minor mistakes like typing errors if at least 30 % of the search term is spelled correctly.<br/></li>
 <li>Wildcard search: enables and disables the usage of wild cards in search requests. Wildcards can be helpful if the article name consists of more than two compound words. In those cases, not using wild card search might not display all appropriate hits in the result list.<br/>
 <strong><em>Note that this option has negative effects on the performance of your shop!</em></strong><br/></li>
@@ -360,7 +360,9 @@ Please use the list methods with care as they have no limits. A huge amount of a
 <li>Don&#39;t move selected filter values to front: This option specifies if the original filter sorting remains when filters are selected in a multiselect box. If this option remains unchecked, you will see the selected filters at the top of the select box.<br/></li>
 <li>Activate category filter: If this option is checked, the result list displays the categories that contain results for the particular search.<br/></li>
 <li>Divider for dynamic categories filters: Dynamic categories are populated by elasticSearch. The exemplary category &quot;gift items under 100 EUR&quot; could be populated with all articles for less then 100 EUR. To differenciate dynamic categories from static ones, the divider must be different from the divider configured in the search options.<br/></li>
-<li>Attributes: You can define attributes for articles, colour and size being the obvious choices for clothing. If you define attributes for clothing, a shirt in multiple colours and sizes will be saved as one article with the colours and sizes as dropdown menues to select. Without defined attributes, every colour and size variation will have to be saved as a separate article.<br/></li>
+<li>Attributes: You can define attributes for articles, colour and size being the obvious choices for clothing. OXSEARCH can then filter those. If you maintain a multilingual shop, you can add an identifier which refers to the language file of your choice for the translation of filter names. The identifier has to be defined in the database in advance and the language files have to be maintained in your OXSEARCH directory in 
+/application/views/azure/[Sprachverzeichnis]<br/></li>
+<li>Article: Here you can set filters on article details such as price and weight.<br/></li>
 <li>Script: This option enables you to write scripts which check certain values to define specials.<br/></li>
 </ul>
 
@@ -435,6 +437,19 @@ Bei der Auswertung bietet es sich an, Synonyme zu pflegen, die mit den ergebnisl
 <h2 id="toc_19">multilingual shops</h2>
 
 <p>If your shop is multilingual, we recommend that you define a language identifier so articles and pages are displayed in the respective language. Every language has its own index and has to be maintained separately. Maintaining articles therefore requires the selection of the language you want to edit via a dropdown list. </p>
+
+<h2 id="toc_20">Multi-tenancy capability</h2>
+
+<p>OXSEARCH is multi-tenancy capable. Please note that you have to install and configure OXSEARCH individually for every subshop.  </p>
+
+<h2 id="toc_21">Support of OXID standard functions</h2>
+
+<p>As OXSEARCH is based on OXID, it supports most of the OXID standard functions. However, there are a few functions not supported:  </p>
+
+<ul>
+<li>user roles and rights in the frontend<br/></li>
+<li>Subshop heritage<br/></li>
+</ul>
 
 </body>
 </html>

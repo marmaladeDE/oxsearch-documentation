@@ -107,7 +107,7 @@ ___Note: OXLocator has negative effects on the performance of your shop system._
 In the search options, you can define search filters which influence your search results.  
 - Assessed search fields: This parameter defines the quantifier for searches. If you assessed the short description with 3 and the article name with 10, the article name would be priorized over the short description.  
 - Search in attribute values: Attributes are propperties of articles like colour or size. The enabled checkbox would enable a user to search your shop for all blue t-shirts.  
-- Search in variants: Variants of an article inherit from a parent article. The parent article contains basic information and the variants different colours or sizes. In the shop frontend, the customer clicks on one article and can select the preferred variant from within the article details.  
+- Search in variants: Variants of an article inherit from a parent article. The parent article contains basic information and the variants different colours or sizes. In the shop frontend, the customer clicks on one article and can select the preferred variant within the article details.  
 - Additional fuzzy search: The fuzzy search corrects minor mistakes like typing errors if at least 30 % of the search term is spelled correctly.  
 - Wildcard search: enables and disables the usage of wild cards in search requests. Wildcards can be helpful if the article name consists of more than two compound words. In those cases, not using wild card search might not display all appropriate hits in the result list.  
 ___Note that this option has negative effects on the performance of your shop!___  
@@ -129,7 +129,9 @@ In this section, you configure product filters.
 - Don't move selected filter values to front: This option specifies if the original filter sorting remains when filters are selected in a multiselect box. If this option remains unchecked, you will see the selected filters at the top of the select box.  
 - Activate category filter: If this option is checked, the result list displays the categories that contain results for the particular search.  
 - Divider for dynamic categories filters: Dynamic categories are populated by elasticSearch. The exemplary category "gift items under 100 EUR" could be populated with all articles for less then 100 EUR. To differenciate dynamic categories from static ones, the divider must be different from the divider configured in the search options.  
-- Attributes: You can define attributes for articles, colour and size being the obvious choices for clothing. If you define attributes for clothing, a shirt in multiple colours and sizes will be saved as one article with the colours and sizes as dropdown menues to select. Without defined attributes, every colour and size variation will have to be saved as a separate article.  
+- Attributes: You can define attributes for articles, colour and size being the obvious choices for clothing. OXSEARCH can then filter those. If you maintain a multilingual shop, you can add an identifier which refers to the language file of your choice for the translation of filter names. The identifier has to be defined in the database in advance and the language files have to be maintained in your OXSEARCH directory in 
+	/application/views/azure/[Sprachverzeichnis]	
+- Article: Here you can set filters on article details such as price and weight.  
 - Script: This option enables you to write scripts which check certain values to define specials.  
 
 ## Synonyms and searchable links ##
@@ -188,8 +190,18 @@ OXID's actions interface can be used to set up landingpages and promotions which
 
 ## Categories ## 
 
-Categories can be populated dynamically with articles. In the tab __dynamic article selection__ in the OXID settings under administer products > categories, you can assign values to the filters defined in OXSEARCH. It is not even necessary for the filter to be active, it just needs a unique parameter name. To decide whichfilters aplly for which category, select the visible filters tab. Exemplary dynamic categories are weekly or monthly specials or gift items.  I
+Categories can be populated dynamically with articles. In the tab __dynamic article selection__ in the OXID settings under administer products > categories, you can assign values to the filters defined in OXSEARCH. It is not even necessary for the filter to be active, it just needs a unique parameter name. To decide whichfilters aplly for which category, select the visible filters tab. Exemplary dynamic categories are weekly or monthly specials or gift items.  
 
 ## multilingual shops ##
 
 If your shop is multilingual, we recommend that you define a language identifier so articles and pages are displayed in the respective language. Every language has its own index and has to be maintained separately. Maintaining articles therefore requires the selection of the language you want to edit via a dropdown list. 
+
+## Multi-tenancy capability ##
+
+OXSEARCH is multi-tenancy capable. Please note that you have to install and configure OXSEARCH individually for every subshop.  
+
+## Support of OXID standard functions ##
+
+As OXSEARCH is based on OXID, it supports most of the OXID standard functions. However, there are a few functions not supported:  
+- user roles and rights in the frontend  
+- Subshop heritage  

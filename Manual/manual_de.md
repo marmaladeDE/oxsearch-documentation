@@ -135,8 +135,10 @@ In diesem Reiter können Sie Produktfilter konfigurieren.
 - Kategoriefilter aktivieren: In der Ergebnisliste werden die Kategorien angezeigt, die den Suchbegriff enthalten.  
 - Trennzeichen für dynamische Kategorien: Dynamische Kategorien werden von Elasticsearch aus bestehenden Artikeln befüllt. Die Beispielkategorie "Geschenkartikel unter 100 EUR" könnte alle Artikel unter 100 EUR enthalten. Das Trennzeichen für dynamische Kategorien muss sich von dem für statische Kategorien unterscheiden.  
 *** Stimmt so nicht, wie erfolgt die Mehrsprachige Pflege? *** 
-- Attribute: Hier können Sie Attribute für Artikel wie Farbe und Größe bei Bekleidung definieren, auf die OXSEARCH filtern kann.
-*** Der Punkt Artikel fehlt ***   
+- Attribute: Hier können Sie Attribute für Artikel wie Farbe und Größe bei Bekleidung definieren, auf die OXSEARCH filtern kann. Für den Fall, dass Sie einen mehrsprachigen Shop pflegen, können Sie hier einen in der Datenbank festzulegenden Identifier hinterlegen, der für die Übersetzung der Feldnamen auf die Sprachdatei der von Ihnen gewünschten Sprache verweist. Die Sprachdateien für mehrsprachige Shops sind im OXID-Verzeichnis unter 
+	/application/views/azure/[Sprachverzeichnis]	
+in lang.php zu pflegen.  
+- Artikel: Hier können Sie Filter auf Artikelinformationen wie Preis und Gewicht setzen.  
 - Skript: Hier können Sie Scripts erstellen, die mehrere Werte prüfen und im Shop beispielsweise als Sonderposten, Saisonartikel, etc. angezeigt werden.  
 
 ## Reiter Synonyme und suchbare Links ##
@@ -206,11 +208,10 @@ Für die Mehrsprachigkeit Ihres Shops empfiehlt es sich, eine Sprachvariable zu 
 ## Mandantenfähigkeit ##
 
 *** unglückig formuliert ***
-OXSEARCH unterstützt keine Mandantenfähigkeit. Konkret bedeutet dies, dass Sie für den Fall, dass Sie Subshops pflegen, OXSEARCH für jeden Subshop säparat installieren und konfigurieren müssen.  
+OXSEARCH ist mandantenfähig. Bitte beachten Sie, dass Sie für den Fall, dass Sie Subshops pflegen, OXSEARCH für jeden Subshop separat installieren und konfigurieren müssen.  
 
 ## Support von OXID-Standardfunktionalitäten ##
 
-Die folgenden OXID-Grundfunktionen werden von OXSEARCH nicht unterstützt:  
+Da OXSEARCH auf OXID basiert, werden die meisten Standardfunktionen von OXID unterstützt. Die folgenden wenigen Funktionen werden nicht unterstützt:  
 - Rollen und Rechte im Frontend  
 - Subshop-Vererbung  
-*** Was ist mit dyn. Caching? High-Performancen Option - Varnish?***
