@@ -168,7 +168,8 @@ The following information is required for each link:
 - Title  
 - external  
 - page  
-___Note: In this section, the translated version of every page has to be added explicitely. If you offer a German version of your terms of service, you have to include the link to AGB to this list!___
+___Note: In this section, the translated version of every page has to be added explicitely. If you offer a German version of your terms of service, you have to include the link to AGB to this list!  
+Every seakable link needs at least one keyword lest it is ignored without an error message!___
 
 ### Synonyms ###
 

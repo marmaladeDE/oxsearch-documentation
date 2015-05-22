@@ -176,7 +176,8 @@ Folgende Angaben werden für einen Link benötigt:
 - Titel  
 - extern  
 - Seite  
-___Hinweis: für die suchbaren Links müssen mehrsprachige Versionen einer Seite explizit festgelegt werden, für die AGB-Seite müssten Sie beispielsweise auch die terms of service-Seite aufführen!___  
+___Hinweis: für die suchbaren Links müssen mehrsprachige Versionen einer Seite explizit festgelegt werden, für die AGB-Seite müssten Sie beispielsweise auch die terms of service-Seite aufführen!  
+Jeder suchbare Link benötigt mindestens ein Schlüsselwort, sonst wird er ohne Fehlermeldung verworfen!___  
 
 ### Synonyme ###
 
