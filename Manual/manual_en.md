@@ -204,4 +204,5 @@ OXSEARCH is multi-tenancy capable. Please note that you have to install and conf
 
 As OXSEARCH is based on OXID, it supports most of the OXID standard functions. However, there are a few functions not supported:  
 - user roles and rights in the frontend  
-- Subshop heritage  
+- Varnish  
+However, unsupported OXID features can be adapted for specific projects.  

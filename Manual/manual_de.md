@@ -207,11 +207,11 @@ Für die Mehrsprachigkeit Ihres Shops empfiehlt es sich, eine Sprachvariable zu 
 
 ## Mandantenfähigkeit ##
 
-*** unglückig formuliert ***
 OXSEARCH ist mandantenfähig. Bitte beachten Sie, dass Sie für den Fall, dass Sie Subshops pflegen, OXSEARCH für jeden Subshop separat installieren und konfigurieren müssen.  
 
 ## Support von OXID-Standardfunktionalitäten ##
 
 Da OXSEARCH auf OXID basiert, werden die meisten Standardfunktionen von OXID unterstützt. Die folgenden wenigen Funktionen werden nicht unterstützt:  
 - Rollen und Rechte im Frontend  
-- Subshop-Vererbung  
+- Varnish  
+Bei Bedarf können nicht funktionierte Grundfunktionen jedoch projektspezifisch angepasst werden.  
