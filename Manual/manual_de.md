@@ -208,7 +208,7 @@ Für die Mehrsprachigkeit Ihres Shops empfiehlt es sich, eine Sprachvariable zu 
 
 ## Mandantenfähigkeit ##
 
-OXSEARCH ist mandantenfähig. Bitte beachten Sie, dass Sie für den Fall, dass Sie Subshops pflegen, OXSEARCH für jeden Subshop separat installieren und konfigurieren müssen.  
+OXSEARCH ist mandantenfähig. Bitte beachten Sie, dass Sie für den Fall, dass Sie Subshops pflegen, OXSEARCH für jeden Subshop separat installieren und konfigurieren müssen. Um die Funktionalität des Boostings zu garantieren, muss jeder Subshop seinen eigenen Index erhalten.  
 
 ## Support von OXID-Standardfunktionalitäten ##
 

@@ -199,7 +199,7 @@ If your shop is multilingual, we recommend that you define a language identifier
 
 ## Multi-tenancy capability ##
 
-OXSEARCH is multi-tenancy capable. Please note that you have to install and configure OXSEARCH individually for every subshop.  
+OXSEARCH is multi-tenancy capable. Please note that you have to install and configure OXSEARCH individually for every subshop. To guarantee ful functionality for boosting settings, make sure that every subshop has its own index.  
 
 ## Support of OXID standard functions ##
 
