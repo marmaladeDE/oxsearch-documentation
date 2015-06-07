@@ -170,7 +170,7 @@ Diese Seite zeigt Ihnen an, welche Suchanfragen ohne Ergebnis blieben.
 ![Suchanfragen ohne Ergebnis](img/oxsearch_suchanfragen_ohne_ergebnis.png) 
 Bei der Auswertung bietet es sich an, Synonyme zu pflegen, die mit den ergebnislosen Suchanfragen verwandt sind.  
 
-## Anmerkungen # #
+## Anmerkungen ##
 ### Landing-Pages und Promotionen ###
 
 Landing-Pages und Promotionen lassen sich über das Aktionen-Interface von OXID anlegen und mit dynamisch anzuwendenden Filtern ausstatten. Anwendungsbeispiele wären Wochen- und Monatsangebote oder beliebteste Artikel.  
@@ -190,25 +190,18 @@ OXSEARCH ist mandantenfähig. Bitte beachten Sie, dass Sie für den Fall, dass S
 
 ### Nutzung von jQuery ###
 
-OXSEARCH verwendet für die Autosuggestion und einige Filter-Templates die Bibliotheken [jQuery](http://jquery.com) und [jQueryUI](http://jqueryui.com). Diese sind bei OXID bereits enthalten. Möchten Sie deren Einbindung verhindern z.B. weil Sie neuere Versionen oder ganz andere Bibliotheken verwenden wollen, müssen Sie in Ihrem Theme lediglich die Datei `widget/header/autosuggestion.tpl` anlegen, z.B. mit folgendem Inhalt:  
-		    [{if $oViewConf->isActivated('autosuggest')}]
-		        <script type="text/javascript">
-		            var source = '[{$oViewConf->getAutosuggestionLink()}]';
-		        </script>
-		        [{oxstyle include=$oViewConf->getModuleUrl('marm/oxsearch','out/src/css/autosuggest.css')}]
-		        [{oxscript include=$oViewConf->getModuleUrl('marm/oxsearch','out/src/js/autosuggest.js')}]
-		    [{/if}]
+OXSEARCH verwendet für die Autosuggestion und einige Filter-Templates die Bibliotheken [jQuery](http://jquery.com) und [jQueryUI](http://jqueryui.com). Diese sind bei OXID bereits enthalten. Möchten Sie deren Einbindung verhindern z.B. weil Sie neuere Versionen oder ganz andere Bibliotheken verwenden wollen, müssen Sie in Ihrem Theme lediglich die Datei `widget/header/autosuggestion.tpl` anlegen, z.B. mit folgendem Inhalt:
+
+    [{if $oViewConf->isActivated('autosuggest')}]
+        <script type="text/javascript">
+            var source = '[{$oViewConf->getAutosuggestionLink()}]';
+        </script>
+        [{oxstyle include=$oViewConf->getModuleUrl('marm/oxsearch','out/src/css/autosuggest.css')}]
+        [{oxscript include=$oViewConf->getModuleUrl('marm/oxsearch','out/src/js/autosuggest.js')}]
+	[{/if}]
 
 Auf diese Weise kann das von OXSEARCH bereitgestellte Autosuggestion-Script verwendet werden, ohne weitere kopien von jQuery einzubinden.
 
 ####  Eigene Autosuggestion ####
 
 Natürlich kann in `widget/header/autosuggestion.tpl` auch Ihr eigenes Autosuggestion-Script eingebunden werden.  Wichtig ist dafür die Funktion `[{$oViewConf->getAutosuggestionLink()}]` , welche eine gesäuberte und protokollunabhängige URL auf dem Autosuggestions-Controller von OXSEARCH liefert. Zur Übertragung des Suchbegriffs müssen Sie lediglich den Parameter `&term=` anfügen.
-
-### Support von OXID-Standardfunktionalitäten ###
-
-Da OXSEARCH auf OXID basiert, werden die meisten Standardfunktionen von OXID unterstützt. Die folgenden wenigen Funktionen werden nicht unterstützt:  
-
-- Rollen und Rechte im Frontend  
-- Varnish  
-Bei Bedarf können nicht unterstützte Grundfunktionen jedoch projektspezifisch angepasst werden.  
