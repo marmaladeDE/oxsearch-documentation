@@ -185,6 +185,7 @@ OXSEARCH is multi-tenancy capable. Please note that you have to install and conf
 
 OXID comes with preinstalled copies of [jQuery](http://jquery.com) and [jQueryUI](http://jqueryui.com).  
 If you want to prevent their implementation because, for example, you want to use newer versions of both or totally different libraries, just create the file `widget/header/autosuggestion.tpl` with the following content:  
+
 		    [{if $oViewConf->isActivated('autosuggest')}]
 		        <script type="text/javascript">
 		            var source = '[{$oViewConf->getAutosuggestionLink()}]';
@@ -192,12 +193,5 @@ If you want to prevent their implementation because, for example, you want to us
 		        [{oxstyle include=$oViewConf->getModuleUrl('marm/oxsearch','out/src/css/autosuggest.css')}]
 		        [{oxscript include=$oViewConf->getModuleUrl('marm/oxsearch','out/src/js/autosuggest.js')}]
 		    [{/if}]
+		    
 Thus you can use OXSEARCH's autosuggestion script without having to include several copies of jQuery.
-
-### Support of OXID standard functions ###
-
-As OXSEARCH is based on OXID, it supports most of the OXID standard functions. However, there are a few functions not supported:  
-
-- user roles and rights in the frontend  
-- Varnish  
-However, unsupported OXID features can be adapted for specific projects.  
