@@ -5,4 +5,4 @@ As OXSEARCH is based on OXID, it supports most of the OXID standard functions. H
 - user roles and rights in the frontend  
 - Varnish from the high-performance option
 
-However, unsupported OXID features can be adapted for specific projects.  
+However, unsupported OXID features can be adapted for specific projects. Don't hesitate to ask for a proposal.
