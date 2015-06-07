@@ -1,4 +1,4 @@
-## OXSEARCH-Setup ##
+# OXSEARCH-Setup #
 
 Um OXSEARCH erfolgreich in OXID einzubinden, müssen nun noch einige wesentliche Einstellungen im OXSEARCH-Setup vorgenommen werden. Das Setup besteht aus vier Reitern mit folgenden Einstellungsmöglichkeiten:  
 
