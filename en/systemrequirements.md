@@ -7,8 +7,8 @@ For OXID and OXSEARCH to run smoothly together, make sure the following componen
 - Php-curl: This is a requirement for OXID and therefore should already be installed..  
 - Elasticsearch 1.1 bis 1.4 (Elasticsearch 1.5+ is not supported yet) 
 - optional Elasticsearch-Plugins for better Unicode search  
-- elasticsearch-analysis-icu  
-- elasticsearch-analysis-combo  
+ - elasticsearch-analysis-icu  
+ - elasticsearch-analysis-combo  
 
 __Notes__  
 
