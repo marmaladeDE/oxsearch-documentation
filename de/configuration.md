@@ -9,7 +9,7 @@ Um OXSEARCH erfolgreich in OXID einzubinden, müssen nun noch einige wesentliche
 
 ![Moduleinstellungen für OXID](img/oxsearch_setup.png)  
 
-### Elasticsearch-Verbindungsdaten und Indizierung ###
+## Elasticsearch-Verbindungsdaten und Indizierung ##
 
 Bevor Sie OXSEARCH nutzen können ist es erforderlich, die Verbindungsdaten für Elasticsearch zu hinterlegen und die Indizierung zu starten.  
 
@@ -25,7 +25,7 @@ __Hinweis: Elasticsearch sollte mindestens mit einer "basic authorization" konfi
 
 ![Verbindungsdaten und Indexerstellung](img/oxsearch_elastic_search_config.png)
 
-### Datenimport ###
+## Datenimport ##
 
 Der Datenimport kann auf drei verschiedene Arten durchgeführt werden.  
 
