@@ -75,7 +75,8 @@ __Hinweis: Diese Option erfordert eine erneute Indizierung!__
 - Aktuelle Promotion überschreibt Kategoriesortierung: Diese Einstellung nimmt Einfluss darauf, ob die Sortierung innerhalb einer Kategorie von der aktuellen Promotion ersetzt wird. Mit der Promotion von Artikeln können Sie Einfluss darauf nehmen, ob ein bestimmter Artikel oder eine Gruppe von Artikel ganz vorne oder weiter hinten in der Liste angezeigt wird. Promotionen können Sie in OXID unter Kundeninformation > Aktionslisten oder direkt am Artikel unter Artikel verwalten > Artikel > Reiter Erweitert (Boost-Wert) pflegen.  
 - Elternkategorien enthalten alle Produkte ihrer Kinder: Wenn Ihr Shop beispielsweise eine Kategorie "Computer und Zubehör" enthält, die aus den Unterkategorien "Computer" und "Zubehör" besteht, können Sie hier beeinflussen, ob bei der Auswahl der Kategorie alle zugeordneten Artikel der Unterkategorien angezeigt werden oder ob der Kunde sich erst für eine der genannten Unterkategorien entscheiden muss.  
 __Hinweis: Diese Option erfordert eine neue Indizierung!__ 
-- Artikel beim Speichern erneut indizieren: Wenn die Indizierung der Artikel durch einen ChronJob automatisch erfolgt, ist diese Option optional.  
+- Artikel beim Speichern erneut indizieren: Wenn die Indizierung der Artikel durch einen ChronJob automatisch erfolgt, ist diese Option optional.
+__Hinweis: Wenn diese Option aktiviert ist, werden Artikel, welche im Shop gelöscht wurden, auch aus Elasticsearch entfernt. Andernfalls ist für die Löschung eine erneute Indizierung notwendig!__
 - oxLocator für Suchergebnis-Detailseiten abschalten: Der oxLocator fügt den Detailseiten der Artikel Navigationslinks hinzu, mit deren Hilfe man zwischen den Artikeln hin- und herspringen kann (u. a. vorheriger Artikel, nächster Artikel, etc.).  
 ___Hinweis: Der aktivierte oxLocator wirkt sich negativ auf die Performance aus.___
 - Trennzeichen für Attribute mit mehreren Wertausprägungen: Wenn ein Artikel beispielsweise aus mehreren Materialien besteht, besteht das Attribut "Material" aus zwei Wertausprägungen. Das Trennzeichen stellt sicher, dass beide Materialien für den betreffenden Artikel gespeichert werden.  
@@ -105,10 +106,11 @@ ___Hinweis: Die Wildcard-Suche wirkt sich negativ auf die Performance aus!___
 In diesem Reiter können Sie Produktfilter konfigurieren.
 
 - SEO-URLS für gefilterte Seiten verwenden: Wenn diese Option deaktiviert ist, werden alle Filter in Form von Parametern an die URL angehängt. Je nach gewählten Filtern kann die Länge der URL zu Problemen führen, so dass die gewünschte Seite nicht angezeigt werden kann.  
-___Hinweis: Wenn SEO-URLS aktiviert sind, kann der Unterstrich nicht als Trennzeichen in anderen Modulen verwendet werden!___  
+___Hinweis: Wenn SEO-URLS aktiviert sind, kann der Unterstrich nicht als Trennzeichen in anderen Modulen verwendet werden!___
 - Anzahl gefundener Artikel am Filterwert anzeigen: Ist diese Option aktiviert, wird im Frontend sichtbar, wie viele Artikel für den aktivierten Filter gefunden wurden. 
 - Selektierte Filter nicht nach vorne sortieren: in einer Multiselectbox werden ausgewählte Filter nicht nach vorne sortiert, sondern in der ursprünglichen Filtersortierung angezeigt. Je nach Anzahl der Elemente in der Selektbox bedeutet dies bei nicht gesetztem Haken, dass Sie scrollen müssen, um die selektierten Filter zu finden.  
-- Kategoriefilter aktivieren: In der Ergebnisliste werden die Kategorien angezeigt, die den Suchbegriff enthalten.  
+- Kategoriefilter aktivieren: In der Ergebnisliste werden die Kategorien angezeigt, die den Suchbegriff enthalten.
+__Hinweis: Dieser Filter funktioniert nur korrekt, sofern _Elternkategorien enthalten alle Produkte ihrer Kinder_ aktiviert ist!__
 - Trennzeichen für dynamische Kategorien: Dynamische Kategorien werden von Elasticsearch aus bestehenden Artikeln befüllt. Die Beispielkategorie "Geschenkartikel unter 100 EUR" könnte alle Artikel unter 100 EUR enthalten. Das Trennzeichen für dynamische Kategorien muss sich von dem für statische Kategorien unterscheiden.  
 - Attribute: Hier können Sie Attribute für Artikel wie Farbe und Größe bei Bekleidung definieren, auf die OXSEARCH filtern kann. Für den Fall, dass Sie einen mehrsprachigen Shop pflegen, können Sie hier einen in der Datenbank festzulegenden Identifier hinterlegen, der für die Übersetzung der Feldnamen auf die Sprachdatei der von Ihnen gewünschten Sprache verweist. Die Sprachdateien für mehrsprachige Shops sind im OXID-Verzeichnis unter 
 	/application/views/azure/[Sprachverzeichnis]	

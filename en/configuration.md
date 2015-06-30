@@ -72,7 +72,8 @@ __Note: This option requires a new indexing!__
 - Active promotions overwrite category sorting defined in oxid: This setting affects whether the in OXID defined sorting is overwritten by promotions. Promotions influence the positioning of articles. In OXID, you can maintain promotions in "customer info > promotions.  
 - Parent categories automatically contain all products of subcategories: If your shop contains a category computer and accessories subdivided into computer and accessories, the check will display all articles of all subcategories whereas with the unchecked box, the customer will have to chose one subcategory first.  
 __Note: This option requires a new indexing!__  
-- Automatically rebuild index after the saving of each article: If your index is regularly rebuilt by a cronjob, this option is unnecessary.  
+- Automatically rebuild index after the saving of each article: If your index is regularly rebuilt by a cronjob, this option is unnecessary.
+__Note: Articles deleted from the shop will also be deleted in Elasticsearch when this option is activated. When it's deactivated, a new indexing is required to do so!__
 - Disable OXLocator for detail pages of search results: The OXLocator adds navigation links to product pages of a search result list to facilitate navigation (prior/previous article, etc.).  
 ___Note: OXLocator has negative effects on the performance of your shop system.___
 - Divider for attributes with multiplevalues: For example, if an article consists of more than one material, the attribute material consists of two values. The divider enables both values to be saved.  
@@ -102,10 +103,11 @@ ___Note that this option has negative effects on the performance of your shop!__
 In this section, you configure product filters.  
 
 - Use SEO-URLS for filtered pages: If you uncheck this field, all selected filters will be appended as parameters to the URL of the page. Depending on the length of the URL, this can cause problems up to the point where you can't open the desired page.  
-___note: If SEO-URLS are checked, the underscore cannot be defined as dividers in third party modules!___  
+___Note: If SEO-URLS are checked, the underscore cannot be defined as dividers in third party modules!___  
 - Display count of docs for filter value: If you set this option, the user can see the number of results for his request.  
 - Don't move selected filter values to front: This option specifies if the original filter sorting remains when filters are selected in a multiselect box. If this option remains unchecked, you will see the selected filters at the top of the select box.  
 - Activate category filter: If this option is checked, the result list displays the categories that contain results for the particular search.  
+__Note: This filter only works correctly if _Parent categories automatically contain all products of subcategories_ is activated as well!__
 - Divider for dynamic categories filters: Dynamic categories are populated by elasticSearch. The exemplary category "gift items under 100 EUR" could be populated with all articles for less then 100 EUR. To differenciate dynamic categories from static ones, the divider must be different from the divider configured in the search options.  
 - Attributes: You can define attributes for articles, colour and size being the obvious choices for clothing. OXSEARCH can then filter those. If you maintain a multilingual shop, you can add an identifier which refers to the language file of your choice for the translation of filter names. The identifier has to be defined in the database in advance and the language files have to be maintained in your OXSEARCH directory in 
 	/application/views/azure/[Sprachverzeichnis]	
