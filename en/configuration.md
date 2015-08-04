@@ -19,11 +19,11 @@ Before you can use OXSEARCH, it is mandatory to enter the information for elasti
 4. Save your settings before you continue with the next step.  
 5. Reopen the elasticSearch configuration settings.  
 6. Define a distinct name for the active and inactive index.  
-__Note: the names vor both indexes can be the same. It is important, however, for them to be in lower case because of an Invalid JSON error message that accurs otherwise.__  
-On the active index, search requests in the shop frontend are performed. The inactive index is only relevant for the indexing process itself. Clicking the swap button will swap both indexes.  
+__Note: the names vor both indexes can be the same. It is important, however, for them to be in lower case because of an Invalid JSON error message that accurs otherwise. Also, both the active and passive index must be defined as otherwise, the active index will not be written into.__  
+On the active index, search requests in the shop frontend are performed. The inactive index is only relevant for the indexing process itself. After both indexes are defined and the active index is filled with contents, please make sure to swap both indexes with the corresponding button.  
+__Note: To avoid tempering with the shop from the outside, we strongly recommend that elasticSearch requires at least a basic authorization!__
 
 ![Connection data and indexing](img/oxsearch_elastic_search_config.png)
-__Note: To avoid tempering with the shop from the outside, we strongly recommend that elasticSearch requires at least a basic authorization!__
 
 ### Data import ###
 
@@ -108,7 +108,7 @@ ___Note: If SEO-URLS are checked, the underscore cannot be defined as dividers i
 - Don't move selected filter values to front: This option specifies if the original filter sorting remains when filters are selected in a multiselect box. If this option remains unchecked, you will see the selected filters at the top of the select box.  
 - Activate category filter: If this option is checked, the result list displays the categories that contain results for the particular search.  
 __Note: This filter only works correctly if _Parent categories automatically contain all products of subcategories_ is activated as well!__
-- Divider for dynamic categories filters: Dynamic categories are populated by elasticSearch. The exemplary category "gift items under 100 EUR" could be populated with all articles for less then 100 EUR. To differenciate dynamic categories from static ones, the divider must be different from the divider configured in the search options.  
+- Divider for dynamic categories: Dynamic categories are populated by elasticSearch. The exemplary category "gift items under 100 EUR" could be populated with all articles for less then 100 EUR. To differenciate dynamic categories from static ones, the divider must be different from the divider configured in the search options.  
 - Attributes: You can define attributes for articles, colour and size being the obvious choices for clothing. OXSEARCH can then filter those. If you maintain a multilingual shop, you can add an identifier which refers to the language file of your choice for the translation of filter names. The identifier has to be defined in the database in advance and the language files have to be maintained in your OXSEARCH directory in 
 	/application/views/azure/[Sprachverzeichnis]	
 - Article: Here you can set filters on article details such as price and weight.  
