@@ -5,4 +5,6 @@
 * [System requirements](systemrequirements.md)
 * [Installation](installation.md)
 * [Configuration](configuration.md)
+* [Extending](extensions.md)
+* [Debugging](debugging.md)
 * [Not supported](not-supported.md)
