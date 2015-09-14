@@ -19,8 +19,8 @@ Bevor Sie OXSEARCH nutzen können ist es erforderlich, die Verbindungsdaten für
 4. Speichern Sie zunächst die eingetragenen Verbindungsdaten, bevor Sie mit dem nächsten Schritt fortfahren.  
 5. Öffnen Sie erneut die Verbindungseinstellungen zu Elasticsearch.  
 6. Definieren Sie einen eindeutigen Indexnamen für den aktiven und den passiven Index.  
-__Hinweis: der Indexname kann für beide Indizes gleich sein, muss aber unbedingt klein geschrieben werden, da sonst eine Fehlermeldung "Invalid JSON" auftritt.__  
-Auf dem aktiven Index findet im Shop-Frontend die Suche statt, während der passive Index allein zur Indexerstellung benötigt wird. Bei Bedarf können die Indizes auf Knopfdruck getauscht werden.  
+__Hinweis: der Indexname kann für beide Indizes gleich sein, muss aber unbedingt klein werden, da sonst eine Fehlermeldung "Invalid JSON" auftritt. Es ist wichtig, dass beide Indizes definiert werden, da sonst der aktive Index nicht beschrieben wird.__  
+Auf dem aktiven Index findet im Shop-Frontend die Suche statt, während der passive Index allein zur Indexerstellung benötigt wird. Nach der Indexerstellung und der Befüllung tauschen Sie die Indizes mit Betätigung des entsprechenden Schalters.  
 __Hinweis: Elasticsearch sollte mindestens mit einer "basic authorization" konfiguriert werden, um Manipulationen des Shop-Bestands von außen zu vermeiden!__
 
 ![Verbindungsdaten und Indexerstellung](img/oxsearch_elastic_search_config.png)
@@ -75,7 +75,8 @@ __Hinweis: Diese Option erfordert eine erneute Indizierung!__
 - Aktuelle Promotion überschreibt Kategoriesortierung: Diese Einstellung nimmt Einfluss darauf, ob die Sortierung innerhalb einer Kategorie von der aktuellen Promotion ersetzt wird. Mit der Promotion von Artikeln können Sie Einfluss darauf nehmen, ob ein bestimmter Artikel oder eine Gruppe von Artikel ganz vorne oder weiter hinten in der Liste angezeigt wird. Promotionen können Sie in OXID unter Kundeninformation > Aktionslisten oder direkt am Artikel unter Artikel verwalten > Artikel > Reiter Erweitert (Boost-Wert) pflegen.  
 - Elternkategorien enthalten alle Produkte ihrer Kinder: Wenn Ihr Shop beispielsweise eine Kategorie "Computer und Zubehör" enthält, die aus den Unterkategorien "Computer" und "Zubehör" besteht, können Sie hier beeinflussen, ob bei der Auswahl der Kategorie alle zugeordneten Artikel der Unterkategorien angezeigt werden oder ob der Kunde sich erst für eine der genannten Unterkategorien entscheiden muss.  
 __Hinweis: Diese Option erfordert eine neue Indizierung!__ 
-- Artikel beim Speichern erneut indizieren: Wenn die Indizierung der Artikel durch einen ChronJob automatisch erfolgt, ist diese Option optional.  
+- Artikel beim Speichern erneut indizieren: Wenn die Indizierung der Artikel durch einen ChronJob automatisch erfolgt, ist diese Option optional.
+__Hinweis: Wenn diese Option aktiviert ist, werden Artikel, welche im Shop gelöscht wurden, auch aus Elasticsearch entfernt. Andernfalls ist für die Löschung eine erneute Indizierung notwendig!__
 - oxLocator für Suchergebnis-Detailseiten abschalten: Der oxLocator fügt den Detailseiten der Artikel Navigationslinks hinzu, mit deren Hilfe man zwischen den Artikeln hin- und herspringen kann (u. a. vorheriger Artikel, nächster Artikel, etc.).  
 ___Hinweis: Der aktivierte oxLocator wirkt sich negativ auf die Performance aus.___
 - Trennzeichen für Attribute mit mehreren Wertausprägungen: Wenn ein Artikel beispielsweise aus mehreren Materialien besteht, besteht das Attribut "Material" aus zwei Wertausprägungen. Das Trennzeichen stellt sicher, dass beide Materialien für den betreffenden Artikel gespeichert werden.  
@@ -85,7 +86,7 @@ ___Hinweis: Der aktivierte oxLocator wirkt sich negativ auf die Performance aus.
 In den Sucheinstellungen können Sie Suchfilter festlegen. Alle diese Ergebnisse wirken sich auf die Suchergebnisse aus.  
 
 - Gewichtete Suchfilter: Hier werden die Wertigkeiten für Suchfelder angegeben. Ein klassischer Anwendungsfall wäre, dass die Artikeltitel mit einer Wertigkeit von 10 höher gewichtet wird als der Suchbegriff in der Kurzbeschreibung, die beispielhaft mit 3 angegeben wird.  
-- Attribute Durchsuchen: Attribute sind Eigenschaften, die ein Artikel enthalten kann (Verschiedene Größen, Farben, etc.). Ist diese Option aktiviert, könnte der Endkunde im Shop-Frontend beispielsweise Suchanfragen mit Attributsausprägungen `blau` auslösen.  
+- Attribute Durchsuchen: Attribute sind Eigenschaften, die ein Artikel enthalten kann (Verschiedene Größen, Farben, etc.). Ist diese Option aktiviert, könnte der Endkunde im Shop-Frontend beispielsweise Suchanfragen mit der Attributsausprägungen `blau` auslösen.  
 - Varianten durchsuchen: Die Variante eines Artikels hat immer einen Elternartikel, von dem die Variante erbt. Im Fall von Bekleidung in verschiedenen Größen würde das bedeuten, dass es einen Artikel für ein bestimmtes Kleidungsstück gibt und die Varianten (verschiedene Farben und Größen) die jeweiligen Kindartikel sind. Im Frontend wird nur ein Artikel angezeigt und innerhalb des Artikels kann der Kunde mittels einer Dropdown-Liste die präferierte Variante wählen.  
 - Zusätzliche Fuzzy-Suche: Die Fuzzy-Suche korrigiert Tippfehler wie Buchstabendreher. Mindestens 30 % des Wortes müssen dabei richtig geschrieben sein. 
 - Wildcard-Suche: Hier können Sie entscheiden, ob für die Suche auch Platzhalter genutzt werden können. Wildcards sind sinnvoll, wenn der Name eines Artikels aus zusammengesetzten Wörtern besteht. Je nachdem, aus wie Vielen Wörtern der Begriff zusammen gesetzt ist, werden betroffene Artikel nicht immer zuverlässig gefunden. "Kiteboard" im OXID Demoshop besteht nur aus zwei zusammen gesetzten Wörtern und würde auch ohne Wildcard-Suche gefunden werden, wenn es jetzt aber "Kiteboard-Hüllen" gibt, würden ohne Wildcard-Suche hauptsächlich alle Treffer mit "Kiteboard" und "Hülle" ausgegeben werden.  
@@ -105,10 +106,11 @@ ___Hinweis: Die Wildcard-Suche wirkt sich negativ auf die Performance aus!___
 In diesem Reiter können Sie Produktfilter konfigurieren.
 
 - SEO-URLS für gefilterte Seiten verwenden: Wenn diese Option deaktiviert ist, werden alle Filter in Form von Parametern an die URL angehängt. Je nach gewählten Filtern kann die Länge der URL zu Problemen führen, so dass die gewünschte Seite nicht angezeigt werden kann.  
-___Hinweis: Wenn SEO-URLS aktiviert sind, kann der Unterstrich nicht als Trennzeichen in anderen Modulen verwendet werden!___  
+___Hinweis: Wenn SEO-URLS aktiviert sind, kann der Unterstrich nicht als Trennzeichen in anderen Modulen verwendet werden!___
 - Anzahl gefundener Artikel am Filterwert anzeigen: Ist diese Option aktiviert, wird im Frontend sichtbar, wie viele Artikel für den aktivierten Filter gefunden wurden. 
 - Selektierte Filter nicht nach vorne sortieren: in einer Multiselectbox werden ausgewählte Filter nicht nach vorne sortiert, sondern in der ursprünglichen Filtersortierung angezeigt. Je nach Anzahl der Elemente in der Selektbox bedeutet dies bei nicht gesetztem Haken, dass Sie scrollen müssen, um die selektierten Filter zu finden.  
-- Kategoriefilter aktivieren: In der Ergebnisliste werden die Kategorien angezeigt, die den Suchbegriff enthalten.  
+- Kategoriefilter aktivieren: In der Ergebnisliste werden die Kategorien angezeigt, die den Suchbegriff enthalten.
+__Hinweis: Dieser Filter funktioniert nur korrekt, sofern _Elternkategorien enthalten alle Produkte ihrer Kinder_ aktiviert ist!__
 - Trennzeichen für dynamische Kategorien: Dynamische Kategorien werden von Elasticsearch aus bestehenden Artikeln befüllt. Die Beispielkategorie "Geschenkartikel unter 100 EUR" könnte alle Artikel unter 100 EUR enthalten. Das Trennzeichen für dynamische Kategorien muss sich von dem für statische Kategorien unterscheiden.  
 - Attribute: Hier können Sie Attribute für Artikel wie Farbe und Größe bei Bekleidung definieren, auf die OXSEARCH filtern kann. Für den Fall, dass Sie einen mehrsprachigen Shop pflegen, können Sie hier einen in der Datenbank festzulegenden Identifier hinterlegen, der für die Übersetzung der Feldnamen auf die Sprachdatei der von Ihnen gewünschten Sprache verweist. Die Sprachdateien für mehrsprachige Shops sind im OXID-Verzeichnis unter 
 	/application/views/azure/[Sprachverzeichnis]	
