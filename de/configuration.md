@@ -200,10 +200,29 @@ OXSEARCH verwendet für die Autosuggestion und einige Filter-Templates die Bibli
         </script>
         [{oxstyle include=$oViewConf->getModuleUrl('marm/oxsearch','out/src/css/autosuggest.css')}]
         [{oxscript include=$oViewConf->getModuleUrl('marm/oxsearch','out/src/js/autosuggest.js')}]
-	[{/if}]
+    [{/if}]
 
 Auf diese Weise kann das von OXSEARCH bereitgestellte Autosuggestion-Script verwendet werden, ohne weitere kopien von jQuery einzubinden.
 
 ####  Eigene Autosuggestion ####
 
 Natürlich kann in `widget/header/autosuggestion.tpl` auch Ihr eigenes Autosuggestion-Script eingebunden werden.  Wichtig ist dafür die Funktion `[{$oViewConf->getAutosuggestionLink()}]` , welche eine gesäuberte und protokollunabhängige URL auf dem Autosuggestions-Controller von OXSEARCH liefert. Zur Übertragung des Suchbegriffs müssen Sie lediglich den Parameter `&term=` anfügen.
+
+#### Eigene Tracking-Pixel ####
+
+OXSEARCH erlaubt den Einbau eigener Tracking-Pixel. Dazu muss einfach das Template `widget/tracking.tpl` mit folgenden Parametern
+eingebunden werden:
+
+ * `key` ist der nach der Trackingvariable, z.B. `requested`.
+ * `product` ist eine oxArticle-Instanz.
+ * `delay` ist eine Optionale Verzögerung in Milliksekunden.
+ 
+Statt `product` können auch die Parameter `type` und `id` angeben werden, um ein beliebiges anderes Objekt zu tracken.
+Wird mehr Flexibilität bezüglich der AJAX-Einbindung gewünscht kann auch mittel der Methode `$oViewConf->getTrackingUrl($type, $id, $key, $force = false)`
+eine Pixel-URL generiert werden.
+
+#### Sicherung des Trackingpixel ####
+
+Das Tracking-Pixel ist durch eine einfache Parameterverschlüsselung gegen unbefugte Dateneinschleusung gesichert. Der dafür
+verwendete Salt lässt sich mit der Option `$this->sOxSearchTrackingPixelSalt ='NEUER SALT';` in der `config.inc.php` überschreiben.
+Mittels `$this->blOxSearchTrackingPixelNoSalt = true;` lässt sich die Verschlüsselung auch ganz abschalten.
