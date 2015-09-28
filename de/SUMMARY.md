@@ -8,3 +8,4 @@
 * [Erweiterung](extensions.md)
 * [Fehlersuche](debugging.md)
 * [Einschränkungen](not-supported.md)
+* [Migration](migration.md)

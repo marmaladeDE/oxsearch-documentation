@@ -1,6 +1,18 @@
 OXSEARCH CHANGELOG
 ==================
 
+version 3.7.0
+-------------
+::: BREAKING CHANGES! :::
+REMOVED Details controllers
+CHANGED New tracking system, default is now to put tracked counters into an extra table
+CHANGED Details page requests are now counted via ajax or pixel
+ADDED Tons of new config.inc.php options, see documentation
+::: ALSO :::
+FIXED Category modifier for multishop caused inheritance in the wrong direction
+CHANGED Modifiers don't require stub columns anymore
+CHANGED Aggregation buckets without text or zero count are now getting removed
+
 version 3.6
 -----------
 * FIXED Shops using mysqli broke on empty searches
