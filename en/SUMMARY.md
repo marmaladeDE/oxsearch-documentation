@@ -7,3 +7,4 @@
 * [Extending](extensions.md)
 * [Debugging](debugging.md)
 * [Not supported](not-supported.md)
+* [Migration](migration.md)
