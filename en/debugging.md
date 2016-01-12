@@ -11,6 +11,7 @@ In addition it is possible to send GET requests directly to the active Elasticse
 You are able to check the Elasticsearch configuration, i.e. version, installed plugins, available indices and the field mapping.
 Or you can check specific elasticsearch documents or test your custom search query.
 
+In this tab you will also be noticed if any of your templates are missing some blocks required by OXSEARCH.
 
 
 

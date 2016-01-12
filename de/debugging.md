@@ -12,6 +12,7 @@ Dies ermöglicht beispielsweise die Konfiguration des Elasticsearch-Servers zu p
 z.B. die Elasticsearch-Version, installierte Plugins, angelegte Indizes und das Mapping der indizierten Felder.
 Es ist aber auch möglich bestimmte Elasticsearch Dokumente abzurufen oder das Ergebnis eigener Suchanfragen zu ermitteln.
 
+In this tab you will also be noticed if any of your templates are missing some blocks required by OXSEARCH.[de]
 
 
 
