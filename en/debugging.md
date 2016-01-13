@@ -1,8 +1,8 @@
 # Debugging Elasticsearch
 
-In the Debugging Area inside the Tab 'Elasticsearch Configuration' of the OXSEARCH-Setup you are able to send requests to elasticsearch.
+In the Debugging Area inside the Tab 'Help & Debugging' of the OXSEARCH-Setup you are able to send requests to elasticsearch.
 
-![Debugging](img/oxsearch_debug.png)  
+![Debugging](img/oxsearch_debug.png)
 
 You can for example test the search for a certain term, by entering the searchterm in the corresponding field and hitting the 'Start search' button.
 The Elasticsearch-Response is stored in a file that can be downloaded afterwards.

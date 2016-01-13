@@ -1,8 +1,8 @@
 # Debugging Elasticsearch
 
-Im Bereich Debugging des Reiters 'Elasticsearch Konfiguration' des OXSEARCH-Setup können Testabfragen an Elasticsearch gesendet werden.
+Im Bereich Debugging des Reiters 'Hilfe & Debugging' des OXSEARCH-Setup können Testabfragen an Elasticsearch gesendet werden.
 
-![Debugging](img/oxsearch_debug.png)  
+![Debugging](img/oxsearch_debug.png)
 
 Zum einen ist es möglich die Suche nach einem bestimmten Begriff zu prüfen, indem man im zugehörigen Feld den Suchbegriff eingibt und die Suche startet.
 Die Antwort des Elasticsearch-Servers wird in einer Datei gespeichert, die man sich anschließend herunterladen kann.
