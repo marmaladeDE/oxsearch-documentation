@@ -89,7 +89,7 @@ The general configuration dialogue is divided into three sections:
 
 ![OXSEARCH-Setup](img/oxsearch_setup.png)
 - Activation of OXSEARCH
-- List view: This setting applies either OXID standards or OXSEARCH filters to the kategory lists. Only checking this box will apply your configured filters.
+- List view: This setting applies either OXID standards or OXSEARCH filters to the category lists. Only checking this box will apply your configured filters.
 - Search: Here you decide if the search is based on the OXID settings or if you apply OXSEARCH's product filters. The OXSEARCH product filters aply only when the checkbox is checked.
 __Note: This option requires a new indexing!__
 - Autosuggestion offers suggestion while entering a search request
