@@ -128,11 +128,13 @@ in lang.php zu pflegen.
 
 ### Reiter Synonyme und suchbare Links ###
 
-Der nächste Punkt in den OXSEARCH-Einstellungen befasst sich mit Synonymen und suchbaren Links. Er ist in folgende Abschnitte unterteilt:
+Der nächste Punkt in den OXSEARCH-Einstellungen befasst sich mit Synonymen, Antonymen und suchbaren Links. Er ist in folgende Abschnitte unterteilt:
 
-- dynamisches Boosting
+- Dynamisches Boosting
+- Dynamisches Boosting Abwertung
 - Suchbare Links
 - Synonyme
+- Antonyme
 
 #### Dynamisches Boosting ####
 

@@ -122,11 +122,13 @@ __Note: This filter only works correctly if _Parent categories automatically con
 
 ### Synonyms and searchable links ###
 
-This tab is divided into three sections and covers:
+This tab is divided into several sections and covers:
 
-- dynamic Boosting
-- Searchable Links
+- Dynamic Boosting
+- Dynamic Boosting devaluation
+- Landing Pages
 - Synonyms
+- Antonyms
 
 #### Dynamic Boosting ####
 
@@ -148,7 +150,7 @@ __Note: We recommend the following boost values:
 - Boostfactor view count details: 1  __
 - Enable debug mode: When the administrator logs into the shop frontend, he can see the result of the boosting settings.
 
-#### Searchable links ####
+#### Landing Pages ####
 
 Assuming you activated the corresponding option in the search options, this section defines which links asside from shop articles are displayed in the search results. Again, the most common examples are payment or terms of service which also appear in the auto suggestion.
 ![searchable links](img/oxsearch_searchable_links.png)
