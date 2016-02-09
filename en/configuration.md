@@ -167,6 +167,20 @@ This section serves for maintaining synonyms.
 If "candy bar" appears in the statistic for searkrequest without results, you can define "chocolate bar" as a synonym.
 ___Please note that the index requires a new rebuilt! Also, synonyms can only be in lowercase. If you try to use uppercase synonyms, OXSEARCH will convert them into lowercase.___
 
+#### Antonyms ####
+
+This section serves for maintaining antonyms.
+![Antonyms](img/oxsearch_antonyms.png)
+In order to exclude results containing word "kiteboarding" while searching for "kite" such a rule should be added:
+"kite => kiteboarding". This excludes all the products which have word "kiteboarding" in their title, short description or manufacturer's title.
+Following these tips will ensure that newly added rules are correct:
+
+- Rule is separated into right and left side by "=>"
+- Every new rule must start at the new line
+- Multiple expressions on the right side of the rule must be separated by comma
+
+___Note: Left side is handled as a single expression___
+
 ### Searchrequest without results ###
 
 This section serves a statistical purpose. We recommend to extend your synonyms based on the evaluation of this page.

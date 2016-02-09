@@ -174,6 +174,22 @@ Hier können Sie Synonyme pflegen.
 Wenn die Statistik der Suchanfragen ohne Ergebnisse zeigt, dass "Softdrinks" keine Treffer ergeben, können Sie "alkoholfreie Getränke" als Synonym festlegen, damit "Softdrinks" künftig zum gewünschten Ergebnis führt.
 ___Hinweis: Die Festlegung von Synonymen erfordert eine Aktualisierung des Index! Beachten Sie, dass Synonyme nur aus Kleinbuchstaben bestehen können. Für den Fall, dass sie dennoch groß geschrieben werden, konvertiert OXSEARCH diese automatisch.___
 
+>>>TRANSLATE
+#### Antonyms ####
+
+This section serves for maintaining antonyms.
+![Antonyms](img/oxsearch_antonyms.png)
+In order to exclude results containing word "kiteboarding" while searching for "kite" such a rule should be added:
+"kite => kiteboarding". This excludes all the products which have word "kiteboarding" in their title, short description or manufacturer's title.
+Following these tips will ensure that newly added rules are correct:
+
+- Rule is separated into right and left side by "=>"
+- Every new rule must start at the new line
+- Multiple expressions on the right side of the rule must be separated by comma
+
+___Note: Left side is handled as a single expression___
+<<<TRANSLATE
+
 ### Suchanfragen ohne Ergebnis ###
 
 Diese Seite zeigt Ihnen an, welche Suchanfragen ohne Ergebnis blieben.
