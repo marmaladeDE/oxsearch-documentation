@@ -150,6 +150,10 @@ __Note: We recommend the following boost values:
 - Boostfactor view count details: 1  __
 - Enable debug mode: When the administrator logs into the shop frontend, he can see the result of the boosting settings.
 
+#### Dynamic Boosting devaluation ####
+
+By starting the devaluation all dynamic boosting's tracking fields (times added to basket, ratings, views, sold, revenue) will be decreased by entered percentage.  
+
 #### Landing Pages ####
 
 Assuming you activated the corresponding option in the search options, this section defines which links asside from shop articles are displayed in the search results. Again, the most common examples are payment or terms of service which also appear in the auto suggestion.

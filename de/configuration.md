@@ -157,6 +157,12 @@ __Hinweis: Wir empfehlen folgende Werte:
 - Anzahl Verkäufe: 100  __
 - Debug-Modus aktivieren: Wenn der Administrator im Frontend eingeloggt ist sehen Sie, wie sich Ihre Gewichtungskriterien auf eine Suche oder Kategorieliste auswirken.
 
+>>>Translate
+#### Dynamic Boosting devaluation ####
+
+By starting the devaluation all dynamic boosting's tracking fields (times added to basket, ratings, views, sold, revenue) will be decreased by entered percentage.  
+<<<Translate
+
 #### Suchbare Links ####
 
 Hier legen Sie fest, welche Links in der Suche aufgeführt werden sollen, wenn diese in den Sucheinstellungen aktiviert sind. Beispiele wären Zahlungs- und Versandbedingungen oder Öffnungszeiten, die auch in der Autosuggestion auftauchen.
