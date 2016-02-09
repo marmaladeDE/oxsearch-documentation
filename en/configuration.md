@@ -137,12 +137,16 @@ The dynamic boosting manipulates the position of articles in category views as w
 
 - Enable dynamic Boosting: You have to check dynamic boosting in order to benefit from the below settings.
 - Use for categories: If you enable this option, the category sorting doesn't aplly anymore.
-- Boostfactor sold amount
-- Boostfactor Added to card
-- Boostfactor view count details
-- Boostfactor Promotions
+- Boostfactor "sold amount"
+- Boostfactor "added to card"
+- Boostfactor "view count details"
+- Boostfactor "promotions"
+- Boostfactor "revenue"
+- Boostfactor "rating"
+- Boostfactor "profit margin"
 - Relevance exponent: defines the factor with which the quantifiers are potentiated. The following formular is applied:
 boostfactor value multiplied with relevance exponentiated with relevance exponent
+___Note: Boostfactor "profit margin" can be set in product's administration___
 The values for one article added.
 __Note: We recommend the following boost values:
 - Added to card: 10

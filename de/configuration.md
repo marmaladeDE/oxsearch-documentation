@@ -147,9 +147,13 @@ Das dynamische Boosting ermöglicht es, die Position von Produkten in der Katego
 - Boostfaktor in den Warenkorb gelegt
 - Boostfaktor Anzahl der Detailseitenaufrufe
 - Boostfaktor Promotionen: Dies ist ein vorgeschlagener Defaultwert von OXID. Ihren Wünschen entsprechend können Sie dieses Feld beliebig konfigurieren, beispielsweise nach Anzahl der Verkäufe.
+- Boostfaktor Einkommen
+- Boostfaktor Bewertungen
+- Boostfaktor Gewinnspanne
 - Relevanzexponent: Mit ihm legen Sie fest, mit welchem Faktor die Wichtungen potenziert werden. Dies dient zur Abwertung von unscharfen Treffern im Suchergebniss.
 Folgende Formel wird angewandt:
 Boostfaktor Wert multipliziert mit Relevanz potenziert mit Relevanzexponent
+>>>Translate ___Note: Boostfactor "profit margin" can be set in product's administration___ <<<Translate
 Die Werte eines Artikels werden dabei addiert.
 __Hinweis: Wir empfehlen folgende Werte:
 - In den Warenkorb gelegt: 10
