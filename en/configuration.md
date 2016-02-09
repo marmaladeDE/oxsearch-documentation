@@ -36,6 +36,11 @@ Using the "rebuild index now" button in the back end, all changes take effect im
 Like the rebuilding in the elasticSearch configuration window, the cronjob is a ful data import. Therefore, it also can take some time to finish. In contrast to using the rebuild button, it's not necessary to log into your shop and initiate the process manually.
 For a more specific data import, we recommend the usage of the update and delete API.
 
+### Data export ###
+
+You are able to export your elasticSearch index to a remote server. It is useful if you have some troubles with your elasticSearch configuration and you want to send a copy of an index to your agency. In the input field you have to write the full path of the index. For example: `http://elastic.example.com:9200/index_name`. If there is an authorization required to access the index, please write it in the following format: `http://user:password@elastic.example.com:9200/index_name`.
+__Note: An index has to be created before the export.__
+
 #### Update- & Delete-API ####
 
 In certain situations a ful import is not the best solution. If For example, if you want to update your index with every occuring change in your stock, a ful import can resolute in unnecessary high traffic. To adjust the indexing process to your individual needs and tie the indexing to certain conditions, for example when an article in stock reaches a value of 10, the marmOxsearchImport class comes with a few methods for updating and deleting articles:

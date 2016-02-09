@@ -37,6 +37,13 @@ Wenn Sie die Schaltfläche im Backend benutzen, wirken sich vorgenommene Änderu
 Das Update durch den Cronjob geschieht im Hintergrund und bedarf keiner aktiven Ausführung, genau wie die Schaltfläche "Index jetzt neu aufbauen" im Backend handelt es sich hier um einen Vollimport, der in Abhängigkeit zur Datenmenge einige Zeit in Anspruch nehmen kann.
 Die Update- und Delete-API bietet sich an, wenn gezielte Aktualisierungen vorgenommen werden sollen.
 
+>>>TRANSLATE
+### Data export ###
+
+You are able to export your elasticSearch index to a remote server. It is useful if you have some troubles with your elasticSearch configuration and you want to send a copy of an index to your agency. In the input field you have to write the full path of the index. For example: `http://elastic.example.com:9200/index_name`. If there is an authorization required to access the index, please write it in the following format: `http://user:password@elastic.example.com:9200/index_name`.
+__Note: An index has to be created before the export.__
+<<<TRANSLATE
+
 #### Update- & Delete-API ####
 
 Es gibt Situationen, in denen der Vollimport nicht die optimale Lösung darstellt. Wenn Sie Ihren Shop beispielsweise mit jeder Bestandsveränderung im Lager neu indizieren, belastet das Ihren Shop bei großem Datenaufkommen erheblich. Um die Indizierung an Ihre Bedürfnisse anpassen zu können und die Indizierung bestimmter oder aller Artikel beispielsweise an die Erreichung eines Lagerbestands von 10 knüpfen zu können, bietet die Klasse marmOxsearchImport einige Methoden zur Aktualisierung und Löschung von Artikeln:
