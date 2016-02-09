@@ -1,6 +1,50 @@
 OXSEARCH CHANGELOG
 ==================
 
+version 3.8.0
+-------------
+* FIXED Dynamic boosting counting of detail page’s views
+* FIXED Wrong deselection of list filters when selecting multi-select filters
+* ADDED Dynamic boosting improvement:
+    - boosting after sales
+    - boosting after profit margins
+    - boosting after ratings
+    - option to devaluate boosting values
+    - out of stock products are displayed last
+* ADDED Option to export elasticsearch index to a remote server
+* ADDED Filter dependency configuration
+* ADDED Functional testing implementation using Behat
+* ADDED Help & Debugging tab in admin back-end
+* ADDED Search results comparison with other shops/environments
+* ADDED Attribute autosuggestion for filters in landing pages, promotions and dynamic categories
+* ADDED Redirection to product page when search matches exact product number
+* CHANGED Moved Elasticsearch debugging to the tab "Help & Debugging"
+* CHANGED Unified look for filters in landing pages, promotions and dynamic categories
+* CHANGED Improved UI in admin back-end for deleting not used product filters
+* CHANGED Improved UI in admin back-end how assessed search fields are described
+
+version 3.7.2
+-------------
+* FIXED Autocompletion/suggest terms contained leading and trailing spaces
+
+version 3.7.1
+-------------
+* FIXED Manual category sorting did not affect category order in EE
+* FIXED Boost debugging displayed incorrect values due to tracking changes
+* FIXED Reindexing products on save didn't apply modifiers correctly
+
+version 3.7.0
+-------------
+* ::: BREAKING CHANGES! :::
+* REMOVED Details controllers
+* CHANGED New tracking system, default is now to put tracked counters into an extra table
+* CHANGED Details page requests are now counted via ajax or pixel
+* ADDED Tons of new config.inc.php options, see documentation
+* ::: ALSO :::
+* FIXED Category modifier for multishop caused inheritance in the wrong direction
+* CHANGED Modifiers don't require stub columns anymore
+* CHANGED Aggregation buckets without text or zero count are now getting removed
+
 version 3.6
 -----------
 * FIXED Shops using mysqli broke on empty searches
