@@ -146,9 +146,12 @@ The dynamic boosting manipulates the position of articles in category views as w
 - Boostfactor "profit margin"
 - Relevance exponent: defines the factor with which the quantifiers are potentiated. The following formular is applied:
 boostfactor value multiplied with relevance exponentiated with relevance exponent
+
 ___Note: Boostfactor "profit margin" can be set in product's administration___
+
 The values for one article added.
-__Note: We recommend the following boost values:
+___Note: We recommend the following boost values:___
+
 - Added to card: 10
 - boostfactor sold amount: 100
 - Boostfactor view count details: 1  __
