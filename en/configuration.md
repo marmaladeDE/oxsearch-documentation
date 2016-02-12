@@ -157,6 +157,7 @@ __Note: We recommend the following boost values:
 #### Dynamic Boosting devaluation ####
 
 By starting the devaluation all dynamic boosting's tracking fields (times added to basket, ratings, views, sold, revenue) will be decreased by entered percentage.  
+Devaluation process can also be performed by a cron job. Please take a look at "crons/marm_oxsearch_boosting_devaluation.php"
 
 #### Landing Pages ####
 
