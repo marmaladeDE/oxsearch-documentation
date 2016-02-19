@@ -15,7 +15,6 @@ version 3.8.0
 * ADDED Filter dependency configuration
 * ADDED Functional testing implementation using Behat
 * ADDED Help & Debugging tab in admin back-end
-* ADDED Search results comparison with other shops/environments
 * ADDED Attribute autosuggestion for filters in landing pages, promotions and dynamic categories
 * ADDED Redirection to product page when search matches exact product number
 * CHANGED Moved Elasticsearch debugging to the tab "Help & Debugging"
