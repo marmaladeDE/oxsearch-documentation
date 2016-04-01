@@ -147,15 +147,26 @@ Das dynamische Boosting ermöglicht es, die Position von Produkten in der Katego
 - Boostfaktor in den Warenkorb gelegt
 - Boostfaktor Anzahl der Detailseitenaufrufe
 - Boostfaktor Promotionen: Dies ist ein vorgeschlagener Defaultwert von OXID. Ihren Wünschen entsprechend können Sie dieses Feld beliebig konfigurieren, beispielsweise nach Anzahl der Verkäufe.
+- Boostfaktor Einkommen
+- Boostfaktor Bewertungen
+- Boostfaktor Gewinnspanne
 - Relevanzexponent: Mit ihm legen Sie fest, mit welchem Faktor die Wichtungen potenziert werden. Dies dient zur Abwertung von unscharfen Treffern im Suchergebniss.
 Folgende Formel wird angewandt:
 Boostfaktor Wert multipliziert mit Relevanz potenziert mit Relevanzexponent
+>>>Translate ___Note: Boostfactor "profit margin" can be set in product's administration___ <<<Translate
 Die Werte eines Artikels werden dabei addiert.
 __Hinweis: Wir empfehlen folgende Werte:
 - In den Warenkorb gelegt: 10
 - Anzahl Detailseitenaufrufe: 1
 - Anzahl Verkäufe: 100  __
 - Debug-Modus aktivieren: Wenn der Administrator im Frontend eingeloggt ist sehen Sie, wie sich Ihre Gewichtungskriterien auf eine Suche oder Kategorieliste auswirken.
+
+>>>Translate
+#### Dynamic Boosting devaluation ####
+
+By starting the devaluation all dynamic boosting's tracking fields (times added to basket, ratings, views, sold, revenue) will be decreased by entered percentage.  
+Devaluation process can also be performed by a cron job. Please take a look at "crons/marm_oxsearch_boosting_devaluation.php"
+<<<Translate
 
 #### Suchbare Links ####
 
