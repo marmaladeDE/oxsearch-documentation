@@ -1,27 +1,28 @@
 ## OXSEARCH-Setup ##
 
-For OXSEARCH to run smoothly with OXID, some crucial settings have to be applied first. The setup is devided into four Tabs:
+For OXSEARCH to run smoothly with OXID, some crucial settings have to be applied first. The setup is devided into these tabs:
 
 - In OXSEARCH-Setup you can make general settings, search options and product filter.
-- In boosting and searchable links, you can configure Boosting and Synonyms.
-- In elasticSearch configuration, you enter the access data vor the elasticSearch server and start the indexing process for your shop.
-- In seakrequest without result, you find a list of key words without a result.
+- In Synonyms & searchable links, you can configure Boosting, Synonyms and Antonyms.
+- In Elasticsearch configuration, you enter the access data vor the Elasticsearch server and start the indexing process for your shop.
+- In Searchresults without result, you find a list of key words without a result.
+- In Help and Debugging can find contact informations, documentation link and some debugging tools.
 
 ![OXSEARCH setup](img/oxsearch_setup.png)
 
-### ElasticSearch connection information  and indexing ###
+### Elasticsearch connection information  and indexing ###
 
-Before you can use OXSEARCH, it is mandatory to enter the information for elasticSearch.
+Before you can use OXSEARCH, it is mandatory to enter the information for Elasticsearch.
 
 1. Select the tab Elasticsearch configuration > connection details.
 2. Enter the host in the formate of [USER:PASSWORd@]ES-DOMAIN_OR_IP.
 3. Specify the port which processes search requests. In most cases, it is 9200.
 4. Save your settings before you continue with the next step.
-5. Reopen the elasticSearch configuration settings.
+5. Reopen the Elasticsearch configuration settings.
 6. Define a distinct name for the active and inactive index.
 __Note: the names vor both indexes can be the same. It is important, however, for them to be in lower case because of an Invalid JSON error message that accurs otherwise. Also, both the active and passive index must be defined as otherwise, the active index will not be written into.__
 On the active index, search requests in the shop frontend are performed. The inactive index is only relevant for the indexing process itself. After both indexes are defined and the active index is filled with contents, please make sure to swap both indexes with the corresponding button.
-__Note: To avoid tempering with the shop from the outside, we strongly recommend that elasticSearch requires at least a basic authorization!__
+__Note: To avoid tempering with the shop from the outside, we strongly recommend that Elasticsearch requires at least a basic authorization!__
 
 ![Connection data and indexing](img/oxsearch_elastic_search_config.png)
 
@@ -29,16 +30,16 @@ __Note: To avoid tempering with the shop from the outside, we strongly recommend
 
 There are three ways to initiate a data import:
 
-- by clicking on "rebuild index now" in the elasticSearch configuration
+- by clicking on "rebuild index now" in the Elasticsearch configuration
 - assigning this task to a cronjob which executes the script file <ShopRoot>/modules/marm/oxsearch/importer/doImport.sh.
 - with the help of the update and delete API
 Using the "rebuild index now" button in the back end, all changes take effect immediately. Depending on the data in the shop, however, the indexing process can take some time. Also, you cannot leave the page during the process.
-Like the rebuilding in the elasticSearch configuration window, the cronjob is a ful data import. Therefore, it also can take some time to finish. In contrast to using the rebuild button, it's not necessary to log into your shop and initiate the process manually.
+Like the rebuilding in the Elasticsearch configuration window, the cronjob is a ful data import. Therefore, it also can take some time to finish. In contrast to using the rebuild button, it's not necessary to log into your shop and initiate the process manually.
 For a more specific data import, we recommend the usage of the update and delete API.
 
 ### Data export ###
 
-You are able to export your elasticSearch index to a remote server. It is useful if you have some troubles with your elasticSearch configuration and you want to send a copy of an index to your agency. In the input field you have to write the full path of the index. For example: `http://elastic.example.com:9200/index_name`. If there is an authorization required to access the index, please write it in the following format: `http://user:password@elastic.example.com:9200/index_name`.
+You are able to export your Elasticsearch index to a remote server. It is useful if you have some troubles with your Elasticsearch configuration and you want to send a copy of an index to your agency. In the input field you have to write the full path of the index. For example: `http://elastic.example.com:9200/index_name`. If there is an authorization required to access the index, please write it in the following format: `http://user:password@elastic.example.com:9200/index_name`.
 __Note: An index has to be created before the export.__
 
 #### Update- & Delete-API ####
@@ -51,8 +52,8 @@ In certain situations a ful import is not the best solution. If For example, if 
 - `deleteArticles($articleIds, $index = 'active')` deletes several articles.
 The optional Parameter $language determins the language using the language ID of OXID, $index specifies weather you work on the active or inactive index.
 Use case:
-		$sOxid = oxRegistry::getConfig()->getRequestParameter('oxid');
-		oxRegistry::get('marmOxsearchImport')->updateArticle($sOxid);
+        $sOxid = oxRegistry::getConfig()->getRequestParameter('oxid');
+        oxRegistry::get('marmOxsearchImport')->updateArticle($sOxid);
 __Note:
 Please use the list methods with care as they have no limits. A huge amount of articles can result in memory or runtime issues.__
 
@@ -104,7 +105,7 @@ ___Note that this option has negative effects on the performance of your shop!__
 - Price range for search results: Narrows the results to the desired price range. This can be of great help when the search term is quite general (kiteboard).
 - Querry operator: In this sellect box you decide wether all or at least one criteria.
 
-#### Product filter ### #
+#### Product filter ####
 
 In this section, you configure product filters.
 
@@ -114,11 +115,11 @@ ___Note: If SEO-URLS are checked, the underscore cannot be defined as dividers i
 - Don't move selected filter values to front: This option specifies if the original filter sorting remains when filters are selected in a multiselect box. If this option remains unchecked, you will see the selected filters at the top of the select box.
 - Activate category filter: If this option is checked, the result list displays the categories that contain results for the particular search.
 __Note: This filter only works correctly if _Parent categories automatically contain all products of subcategories_ is activated as well!__
-- Divider for dynamic categories: Dynamic categories are populated by elasticSearch. The exemplary category "gift items under 100 EUR" could be populated with all articles for less then 100 EUR. To differenciate dynamic categories from static ones, the divider must be different from the divider configured in the search options.
+- Divider for dynamic categories: Dynamic categories are populated by Elasticsearch. The exemplary category "gift items under 100 EUR" could be populated with all articles for less then 100 EUR. To differenciate dynamic categories from static ones, the divider must be different from the divider configured in the search options.
 - Attributes: You can define attributes for articles, colour and size being the obvious choices for clothing. OXSEARCH can then filter those. If you maintain a multilingual shop, you can add an identifier which refers to the language file of your choice for the translation of filter names. The identifier has to be defined in the database in advance and the language files have to be maintained in your OXSEARCH directory in
-	/application/views/azure/[Sprachverzeichnis]
+    /application/views/azure/[Sprachverzeichnis]
 - Article: Here you can set filters on article details such as price and weight.
-- Script: This option enables you to write scripts which check certain values to define specials.
+- Script: This option enables you to write scripts which check certain values to define specials. __Note: scripts has to be written in groovy scripting language__
 
 ### Synonyms and searchable links ###
 
@@ -159,7 +160,7 @@ ___Note: We recommend the following boost values:___
 
 #### Dynamic Boosting devaluation ####
 
-By starting the devaluation all dynamic boosting's tracking fields (times added to basket, ratings, views, sold, revenue) will be decreased by entered percentage.  
+By starting the devaluation all dynamic boosting's tracking fields (times added to basket, ratings, views, sold, revenue) will be decreased by entered percentage.
 Devaluation process can also be performed by a cron job. Please take a look at "crons/marm_oxsearch_boosting_devaluation.php"
 
 #### Landing Pages ####
@@ -222,13 +223,13 @@ OXSEARCH is multi-tenancy capable. Please note that you have to install and conf
 OXID comes with preinstalled copies of [jQuery](http://jquery.com) and [jQueryUI](http://jqueryui.com).
 If you want to prevent their implementation because, for example, you want to use newer versions of both or totally different libraries, just create the file `widget/header/autosuggestion.tpl` with the following content:
 
-		    [{if $oViewConf->isActivated('autosuggest')}]
-		        <script type="text/javascript">
-		            var source = '[{$oViewConf->getAutosuggestionLink()}]';
-		        </script>
-		        [{oxstyle include=$oViewConf->getModuleUrl('marm/oxsearch','out/src/css/autosuggest.css')}]
-		        [{oxscript include=$oViewConf->getModuleUrl('marm/oxsearch','out/src/js/autosuggest.js')}]
-		    [{/if}]
+            [{if $oViewConf->isActivated('autosuggest')}]
+                <script type="text/javascript">
+                    var source = '[{$oViewConf->getAutosuggestionLink()}]';
+                </script>
+                [{oxstyle include=$oViewConf->getModuleUrl('marm/oxsearch','out/src/css/autosuggest.css')}]
+                [{oxscript include=$oViewConf->getModuleUrl('marm/oxsearch','out/src/js/autosuggest.js')}]
+            [{/if}]
 
 Thus you can use OXSEARCH's autosuggestion script without having to include several copies of jQuery.
 
