@@ -1,11 +1,13 @@
 # OXSEARCH-Setup #
 
-Um OXSEARCH erfolgreich in OXID einzubinden, müssen nun noch einige wesentliche Einstellungen im OXSEARCH-Setup vorgenommen werden. Das Setup besteht aus vier Reitern mit folgenden Einstellungsmöglichkeiten:
+Um OXSEARCH erfolgreich in OXID einzubinden, müssen nun noch einige wesentliche Einstellungen im OXSEARCH-Setup vorgenommen werden. Das Setup besteht aus
+fünf Reitern mit folgenden Einstellungsmöglichkeiten:
 
 - Im ersten Reiter OXSEARCH-Setup finden Sie Grund-, Such- & Filtereinstellungen.
 - Im zweiten Reiter können Sie Boosting & Synonyme konfigurieren.
 - Im dritten Reiter werden die Zugangsdaten zu Elasticsearch hinterlegt & die Indizierung gestartet.
 - Im vierten Reiter werden die Suchbegriffe fehlgeschlagener Suchen aufgelistet.
+- In den Bereichen Hilfe und Fehlersuche finden Sie Informationen, hilfreiche Dokumentationslinks und einige Werkzeuge zur Fehlersuche.
 
 ![Moduleinstellungen für OXID](img/oxsearch_setup.png)
 
@@ -37,12 +39,11 @@ Wenn Sie die Schaltfläche im Backend benutzen, wirken sich vorgenommene Änderu
 Das Update durch den Cronjob geschieht im Hintergrund und bedarf keiner aktiven Ausführung, genau wie die Schaltfläche "Index jetzt neu aufbauen" im Backend handelt es sich hier um einen Vollimport, der in Abhängigkeit zur Datenmenge einige Zeit in Anspruch nehmen kann.
 Die Update- und Delete-API bietet sich an, wenn gezielte Aktualisierungen vorgenommen werden sollen.
 
->>>TRANSLATE
+
 ### Data export ###
 
-You are able to export your elasticSearch index to a remote server. It is useful if you have some troubles with your elasticSearch configuration and you want to send a copy of an index to your agency. In the input field you have to write the full path of the index. For example: `http://elastic.example.com:9200/index_name`. If there is an authorization required to access the index, please write it in the following format: `http://user:password@elastic.example.com:9200/index_name`.
-__Note: An index has to be created before the export.__
-<<<TRANSLATE
+Der ElasticSearch-Index kann auf einen Remoteserver exportiert werden. Dies ist hilfreich, wenn Probleme innerhalb der ElasticSearch-Konfiguration auftreten und eine Kopie des Indexes an eine Agentur ausgegeben werden soll. Tragen Sie in das Eingabefeld den gesamten Indexpfad ein, z.B. `http://elastic.example.com:9200/index_name`. Wird eine Kennwort-Abfrage eingeblendet, um auf den Index zuzugreifen, geben Sie bitte den folgenden Pfad ein:  `http://user:password@elastic.example.com:9200/index_name`.
+__Hinweis: Ein Index muss vor dem Export angelegt werden.__
 
 #### Update- & Delete-API ####
 
@@ -153,7 +154,7 @@ Das dynamische Boosting ermöglicht es, die Position von Produkten in der Katego
 - Relevanzexponent: Mit ihm legen Sie fest, mit welchem Faktor die Wichtungen potenziert werden. Dies dient zur Abwertung von unscharfen Treffern im Suchergebniss.
 Folgende Formel wird angewandt:
 Boostfaktor Wert multipliziert mit Relevanz potenziert mit Relevanzexponent
->>>Translate ___Note: Boostfactor "profit margin" can be set in product's administration___ <<<Translate
+___Hinweis: Der Boostfactor "profit margin" kann in der Produktadministration festgelegt werden.___
 Die Werte eines Artikels werden dabei addiert.
 __Hinweis: Wir empfehlen folgende Werte:
 - In den Warenkorb gelegt: 10
@@ -161,12 +162,10 @@ __Hinweis: Wir empfehlen folgende Werte:
 - Anzahl Verkäufe: 100  __
 - Debug-Modus aktivieren: Wenn der Administrator im Frontend eingeloggt ist sehen Sie, wie sich Ihre Gewichtungskriterien auf eine Suche oder Kategorieliste auswirken.
 
->>>Translate
-#### Dynamic Boosting devaluation ####
+#### Dynamische Reduzierung des Boostings####
 
-By starting the devaluation all dynamic boosting's tracking fields (times added to basket, ratings, views, sold, revenue) will be decreased by entered percentage.  
-Devaluation process can also be performed by a cron job. Please take a look at "crons/marm_oxsearch_boosting_devaluation.php"
-<<<Translate
+Mit der Reduzierung des Boostings, verringern sich alle dynamischen Felder (Zeiten für Papierkörbe, Bewertungen, Ansichten, Umsätze) um den eingegebenen Prozentsatz.
+Dieser Prozess kann ebenso mit einem Cronjob durchgeführt werden. Weitere Hinweise dazu finden Sie hier: "crons/marm_oxsearch_boosting_devaluation.php"
 
 #### Suchbare Links ####
 
@@ -187,21 +186,19 @@ Hier können Sie Synonyme pflegen.
 Wenn die Statistik der Suchanfragen ohne Ergebnisse zeigt, dass "Softdrinks" keine Treffer ergeben, können Sie "alkoholfreie Getränke" als Synonym festlegen, damit "Softdrinks" künftig zum gewünschten Ergebnis führt.
 ___Hinweis: Die Festlegung von Synonymen erfordert eine Aktualisierung des Index! Beachten Sie, dass Synonyme nur aus Kleinbuchstaben bestehen können. Für den Fall, dass sie dennoch groß geschrieben werden, konvertiert OXSEARCH diese automatisch.___
 
->>>TRANSLATE
-#### Antonyms ####
+#### Antonyme ####
 
-This section serves for maintaining antonyms.
+Dieser Bereich beschreibt die Behandlung von Antonymen.
 ![Antonyms](img/oxsearch_antonyms.png)
-In order to exclude results containing word "kiteboarding" while searching for "kite" such a rule should be added:
-"kite => kiteboarding". This excludes all the products which have word "kiteboarding" in their title, short description or manufacturer's title.
-Following these tips will ensure that newly added rules are correct:
+Um Ergebnisse wie "kiteboarding" zu vermeiden, während nach "kite" gesucht wird, sollte folgende Regel hinzugefügt werden:
+"kite => kiteboarding". Diese schließt all diejenigen Produkte aus, die das Wort "kiteboarding" in ihrem Titel, der Kurzbeschreibung oder dem Herstellertitel aufgeführt haben.
+Die folgenden Tipps helfen dabei, neu hinzugefügte Regeln korrekt auszuführen:
 
-- Rule is separated into right and left side by "=>"
-- Every new rule must start at the new line
-- Multiple expressions on the right side of the rule must be separated by comma
+- Eine Regel sollte rechts und links folgendermaßen abgetrennt werden "=>"
+- Jede neue Regel beginnt in einer neuen Zeile.
+- Mehrteilige Begriffe auf der rechten Seite einer Regel werden durch Kommas getrennt.
 
-___Note: Left side is handled as a single expression___
-<<<TRANSLATE
+___Hinweis: Die linke Seite wird wie ein einzelner Begriff behandelt. ___
 
 ### Suchanfragen ohne Ergebnis ###
 
