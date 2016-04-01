@@ -1,6 +1,12 @@
 OXSEARCH CHANGELOG
 ==================
 
+version 4.0.0
+-------------
+* ::: BREAKING CHANGES! :::
+* MIGRATED to Elasticsearch 2.x. For Elasticsearc 1.x please use OXSEARCH 3.x version.
+* CHANGED scripts from mvel to groovy language.
+
 version 3.8.0
 -------------
 * FIXED Dynamic boosting counting of detail page’s views
