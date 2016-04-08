@@ -1,4 +1,4 @@
 # Dokumentation OXSEARCH #
 
 
-![marmalade GmbH](../img/m-logo-slider-full.jpg)
+![marmalade GmbH](img/m-logo-slider-full.jpg)
