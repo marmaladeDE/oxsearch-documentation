@@ -2,7 +2,7 @@
 
 For OXID and OXSEARCH to run smoothly together, make sure the following components are installed:
 
-- PHP 5.3+
+- PHP 5.4+
 - OXID 4.8+ or higher
 - Php-curl: This is a requirement for OXID and therefore should already be installed..
 - OXSEARCH 3.x
