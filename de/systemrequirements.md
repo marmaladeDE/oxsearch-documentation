@@ -2,7 +2,7 @@
 
 Um eine Einbindung von OXSEARCH in OXID zu gewährleisten, müssen folgende Komponenten installiert sein:
 
-* PHP 5.3+
+* PHP 5.4+
 * OXID 4.8+ oder höher
 * PHP-curl: dies ist eine der Voraussetzungen für OXID und sollte bereits vorhanden sein.
 * OXSEARCH 3.x
