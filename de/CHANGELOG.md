@@ -1,6 +1,104 @@
 OXSEARCH CHANGELOG
 ==================
 
+version 4.0.15
+--------------
+* FIXED Promotions without defined filters crash search
+* CHANGED Stricter version dependency in composer.json
+* CHANGED URL to manufacturer page in autosuggest is now being fetched from oxManufacturer object
+
+version 4.0.14
+--------------
+* FIXED Filter URLs where broken when using sorting and not using SEO URLs
+* FIXED Inherited products didn't use proper URLs
+* ADDED Blocks in template for synonym and searchable link configuration
+* CHANGED Improved deep category query for importer
+
+version 4.0.13
+--------------
+* FIXED Generated parameter names for filters retained dots
+* ADDED Extension point for limiting the bucket count of aggregations
+* ADDED Shop ID parameter for Update and Delete API
+* CHANGED Category filter visibility gets saved as empty if not configured
+
+version 4.0.12
+--------------
+* FIXED Update API wrote to wrong language index
+* FIXED Delete API was not deleting article from all languages
+* FIXED Some SQL queries used double quotes for strings
+* CHANGED Added a lot of class comments
+
+version 4.0.11
+--------------
+* FIXED "Reindex on save" caused trouble with various ERP/PIM update scripts
+* FIXED Enabling SEO urls for filter broke sorting of product list
+* ADDED Simple Logging for indexing step of importer
+
+version 4.0.10
+--------------
+* FIXED Warnings on search page caused by misspelling of method
+
+version 4.0.9
+-------------
+* FIXED CSS for slider still contained image references
+* FIXED All settings were lost on deactivation
+* ADDED Extension points for slider filters
+* ADDED Support for custom filters
+* ADDED Result caching for oxArticleList
+
+version 4.0.8
+-------------
+* FIXED Inherited categories not showing deep category products
+* FIXED Attribute titles sometimes not shown in filter configuration
+* FIXED Stock status flag introduced in 4.0.7 causes warning
+
+version 4.0.7
+-------------
+* FIXED Active field breaks import on ES 2.1
+* FIXED Cannot use oxArticleList::loadCategoryArticles on search page
+* CHANGED No stock sorting wasn't respecting stock status
+
+version 4.0.6
+-------------
+* FIXED Broken category sorting
+* FIXED No stock sorting brakes sorting in search
+* FIXED Autosuggest does not load with only additionalSearchresults
+* CHANGED Switched from truncate to oxtruncate in templates
+* CHANGED marm_oxsearch_query_builder now gets instantiated in the dic using oxNew
+
+version 4.0.5
+-------------
+* FIXED Language change lags one request behind
+* FIXED OXSEARCHKEYS only worked when maintained lowercase
+* ADDED Support for future OXHIDDEN flag
+* CHANGED Language switching now resets filters
+
+version 4.0.4
+-------------
+* FIXED Language change lags one request behind (only when SEO Filter URLs are disabled)
+* FIXED Autosuggest broken on Flow
+* CHANGED Search by article number no longer adds a redirected parameter
+
+version 4.0.3
+-------------
+* FIXED Search by article number shouldn't find inactive products
+* FIXED Synonyms weren't added on index (re)creation
+* FIXED Bad encoding of OXID in in db tracking adapter
+* CHANGED Synonyms are now added to all language indexes
+* CHANGED Autosuggestion shows single product if the search matches it's product number
+* CHANGED Import from CLI now uses another endpoint (doImport.php)
+* CHANGED Index names are now automatically changed to lowercase
+
+version 4.0.2
+-------------
+* FIXED Dynamic boosting broke search relevancy
+* ADDED Manufacturer thumbnails in autosuggestion
+
+version 4.0.1
+-------------
+* ADDED Check for decompound plugin
+* CHANGED Subshop aware tracking is now available
+
 version 4.0.0
 -------------
 * ::: BREAKING CHANGES! :::
